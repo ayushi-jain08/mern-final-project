@@ -10,13 +10,13 @@ import CircularProgress from "@mui/material/CircularProgress";
 const AllProduct = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
-  const [_scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [sortOrder, setSortOrder] = useState("");
   const [brandFilter, setBrandFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [categorys, setCategorys] = useState("");
   // const [tPages, setTPages] = useState(1);
-  const { allProductInfo, totalPage, loading, error } = products;
+  const { allProductInfo, totalPage, loading } = products;
   const brands = [
     "Nature’s Bounty",
     "Maharaja",
@@ -97,8 +97,12 @@ const AllProduct = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const headerStyle = {
+    backgroundColor: scrollPosition > 100 ? "white" : "white",
+    transition: "background-color 0.3s ease",
+  };
   return (
-    <div className="all-product-page">
+    <div className="all-product-page" style={headerStyle}>
       <div className="all-product">
         <div className="sub-products">
           <div className="left">

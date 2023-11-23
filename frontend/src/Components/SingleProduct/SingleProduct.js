@@ -39,7 +39,7 @@ const SingleProduct = () => {
     discount,
     stock,
   } = singleProduct;
-  const [_scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const users = useSelector((state) => state.user);
   const { currentUser } = users;
   // ====================SCROLL POSITION====================
@@ -88,10 +88,14 @@ const SingleProduct = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const headerStyle = {
+    backgroundColor:
+      scrollPosition > 100 ? "rgb(241, 240, 240)" : "rgb(241, 240, 240)",
+    transition: "background-color 0.3s ease",
+  };
   return (
     <>
-      <div className="single-product">
+      <div className="single-product" style={headerStyle}>
         <div className="sub-single">
           {loading ? (
             <div

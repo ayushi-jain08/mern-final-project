@@ -6,7 +6,7 @@ import FeatureProduct from "../FeatureProduct/FeatureProduct";
 import TopCollection from "../TopCollection/TopCollection";
 
 const Home = () => {
-  const [_scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   // ====================SCROLL POSITION====================
   useEffect(() => {
     const handleScroll = () => {
