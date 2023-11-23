@@ -39,7 +39,7 @@ const Cart = ({ path = "loginsignup" }) => {
       });
     }
     dispatch(fetchCartProduct());
-  }, [dispatch]);
+  }, [StorageUserInfo, navigate, path, location, dispatch]);
 
   //========================SUBTOTAL====================//
   const totalSubtotal = cartProductInfo.reduce((accumulator, cartItem) => {

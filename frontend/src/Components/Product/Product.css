@@ -30,14 +30,14 @@ font-family: 'Roboto', sans-serif; */
 }
 .product .product-card {
   border-radius: 8px;
-  width: 170px;
-  height: 300px;
+  width: 180px;
+  height: 310px;
   background-color: white;
   margin-top: 5px;
   border: 1px solid rgb(226, 220, 220);
   box-shadow: 0px 5px 5px rgba(194, 194, 194, 0.5);
   position: relative;
-  padding: 5px;
+  padding: 10px 5px;
   box-sizing: border-box;
 }
 .product .product-card .img {
@@ -340,7 +340,7 @@ font-family: 'Roboto', sans-serif; */
   }
   .all-product-page .all-product .product .product-card {
     width: 165px;
-    height: 290px;
+    height: 300px;
   }
   .all-product-page .all-product .product .product-card .details {
     margin: 0 auto;
