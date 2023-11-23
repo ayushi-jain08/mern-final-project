@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Poppins:wght@300;400;500&family=Roboto:wght@300;400&display=swap");
+
+/* font-family: 'Libre Baskerville', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif; */
+.product-page {
+  max-width: 1100px;
+  margin: 20px auto;
+}
+.product-page h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+}
+.product-page h2::after {
+  content: "";
+  height: 3px;
+  border-radius: 3px;
+  width: 100px;
+  background: rgb(81, 29, 22);
+  position: absolute;
+  top: 45px;
+  left: 0;
+}
+.product {
+  display: flex;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.product .product-card {
+  border-radius: 8px;
+  width: 170px;
+  height: 300px;
+  background-color: white;
+  margin-top: 5px;
+  border: 1px solid rgb(226, 220, 220);
+  box-shadow: 0px 5px 5px rgba(194, 194, 194, 0.5);
+  position: relative;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.product .product-card .img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin: 0px auto;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.product .product-card .img img {
+  /* object-fit: cover; */
+  width: 100%;
+  height: 100%;
+}
+.product .product-card .details {
+  width: 100%;
+  padding: 5px;
+}
+.product .product-card .details .head {
+  margin-top: 10px;
+  padding-left: 5px;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: rgb(9, 9, 60);
+  font-family: "Libre Baskerville", serif;
+  font-weight: 600;
+}
+.product .product-card .details a {
+  margin-top: 8px;
+  text-decoration: none;
+  color: rgb(6, 6, 63);
+}
+.product .product-card .details a p {
+  padding: 5px 0;
+  font-family: "Libre Baskerville", serif;
+  font-size: 12px;
+}
+.product .product-card .details .desc:hover {
+  color: red;
+}
+.product .product-card .details .stars {
+  margin-top: -10px;
+  padding: 2px 0;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.product .product-card .details .price strong {
+  font-family: "Libre Baskerville", serif;
+  font-size: 13px;
+}
+.product .product-card .wishlist {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  color: rgb(211, 205, 205);
+  transition: all 0.1s;
+}
+.product .product-card .wishlist .white {
+  color: rgb(188, 182, 182);
+}
+.product .product-card .wishlist .red {
+  color: red;
+  transform: scale(1.1);
+}
+
+/* ====================ALL PRODUCTS======================= */
+.all-product-page {
+  position: relative;
+  top: 110px;
+  overflow-x: hidden;
+}
+.all-product-page .all-product {
+  background: rgb(243, 243, 243);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.all-product-page .all-product .sub-products {
+  max-width: 1100px;
+  margin: 0px auto;
+  display: flex;
+  padding: 15px 5px;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.all-product-page .all-product .sub-products .left {
+  flex: 0.2;
+  width: 100%;
+}
+.all-product-page .left .shop {
+  width: 100%;
+  background: white;
+  border-radius: 7px;
+  height: fit-content;
+  box-sizing: border-box;
+  border: 2px solid rgb(233, 227, 227);
+  margin-top: 10px;
+}
+.all-product-page .left .shop h3 {
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+  color: rgb(10, 10, 70);
+  border-bottom: 1px solid rgb(233, 233, 233);
+  font-family: "Libre Baskerville", serif;
+}
+.all-product-page .left .shop ul {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-top: -10px;
+}
+.all-product-page .left .shop ul li {
+  width: 100%;
+  list-style: none;
+  padding: 7px;
+  font-size: 13px;
+  text-transform: capitalize;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: "Libre Baskerville", serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.all-product-page .left .shop ul li:hover {
+  background: rgb(247, 232, 232);
+  color: black;
+}
+.all-product-page .left .shop ul .selected {
+  background: rgb(24, 24, 54);
+  color: white;
+  border-radius: 5px;
+}
+.all-product-page .left .filter {
+  width: 100%;
+  background: white;
+  border-radius: 7px;
+  height: fit-content;
+  height: 230px;
+  box-sizing: border-box;
+  border: 2px solid rgb(233, 227, 227);
+  margin-top: 10px;
+}
+.all-product-page .left .filter h3 {
+  padding: 10px 0px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-family: "Libre Baskerville", serif;
+  text-align: center;
+  border-bottom: 1px solid rgb(233, 233, 233);
+  color: rgb(10, 10, 70);
+}
+.all-product-page .left .filter ul {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-top: -15px;
+}
+.all-product-page .left .filter ul li {
+  width: 100%;
+  list-style: none;
+  padding: 7px;
+  font-size: 15px;
+  text-transform: capitalize;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.all-product-page .left .filter ul li:hover {
+  background: rgb(247, 232, 232);
+  color: black;
+}
+.all-product-page .left .filter ul .selected {
+  background: rgb(24, 24, 54);
+  color: white;
+  border-radius: 5px;
+}
+.all-product-page .all-product .sub-products .right {
+  flex: 0.8;
+  width: 900px;
+}
+.all-product-page .all-product .right .sort {
+  width: 95%;
+  background: white;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 7px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 7px;
+  display: flex;
+  align-items: baselines;
+  gap: 5px;
+}
+.all-product-page .all-product .right .sort p {
+  font-weight: 600;
+  font-family: "Libre Baskerville", serif;
+}
+.all-product-page .all-product .right .sort .select {
+  height: 100%;
+  width: 150px;
+  outline: none;
+  border: 1px solid gainsboro;
+  font-size: 15px;
+  font-family: "Libre Baskerville", serif;
+}
+.all-product-page.all-product .right .sort .select .opt {
+  height: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.all-product-page .all-product .sub-products .product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.all-product-page .all-product .pagination {
+  position: relative;
+  bottom: 10px;
+  left: 90%;
+  width: fit-content;
+  padding: 5px;
+  border: 1px solid rgb(175, 169, 169);
+  border-radius: 5px;
+  background: rgb(217, 217, 247);
+}
+.all-product-page .all-product .pagination button {
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 5px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.all-product-page .all-product .pagination .active {
+  background-color: rgb(10, 10, 72);
+  color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .all-product-page {
+    top: 90px;
+  }
+  .all-product-page .all-product .sub-products {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .all-product-page .left .shop {
+    height: 135px;
+    width: 49%;
+  }
+  .all-product-page .left .filter {
+    height: 135px;
+    width: 48%;
+  }
+
+  .all-product-page .all-product .sub-products .left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  .all-product-page .left .shop h3,
+  .all-product-page .left .filter h3 {
+    font-size: 12px;
+    padding: 5px;
+  }
+  .all-product-page .left .shop ul,
+  .all-product-page .left .filter ul {
+    padding: 3px;
+  }
+  .all-product-page .left .shop ul li,
+  .all-product-page .left .filter ul li {
+    font-size: 8px;
+    padding: 2px;
+  }
+  .all-product-page .all-product .sub-products .right {
+    width: 100%;
+  }
+  .all-product-page .all-product .right .sort {
+    width: 98%;
+  }
+  .product {
+    gap: 5px;
+    margin-top: 5px;
+  }
+  .all-product-page .all-product .product .product-card {
+    width: 165px;
+    height: 290px;
+  }
+  .all-product-page .all-product .product .product-card .details {
+    margin: 0 auto;
+    width: 95%;
+  }
+  .all-product-page .all-product .product .product-card .details .head {
+    font-size: 12px;
+  }
+  .all-product-page .all-product .product .product-card .details a p {
+    font-size: 10px;
+  }
+  .all-product-page .all-product .pagination {
+    position: relative;
+    left: 35%;
+    padding: 5px 8px;
+  }
+  .all-product-page .all-product .pagination button {
+    padding: 3px 12px;
+  }
+}

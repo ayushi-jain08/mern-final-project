@@ -6,13 +6,17 @@ const productSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
-  description: {
+  desc: {
     type: String,
     required: true,
   },
   ratings: {
     type: Number,
     default: 0,
+  },
+  brand: {
+    type: String,
+    required: true,
   },
   mrp: {
     type: Number,
@@ -58,11 +62,27 @@ const productSchema = mongoose.Schema({
     maxLength: [4, "Stock cannot exceed 4 characters"],
     default: 1,
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    // required: true,
-  },
+  reviews: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      name: {
+        type: String,
+        required: true,
+      },
+      rating: {
+        type: Number,
+        required: true,
+      },
+      comment: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

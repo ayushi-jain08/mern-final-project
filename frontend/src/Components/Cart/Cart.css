@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.carts {
+  background-color: rgb(241, 240, 240);
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  top: 110px;
+}
+.carts .sub-cart {
+  max-width: 1100px;
+  margin: 0px auto;
+  height: 100vh;
+  padding: 10px;
+}
+.sub-cart .header {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid rgb(194, 191, 191);
+  justify-content: space-between;
+  text-transform: capitalize;
+}
+.sub-cart .header h2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(94, 89, 89);
+  text-transform: uppercase;
+  font-family: "Playfair Display", serif;
+}
+.header .product,
+.content .product {
+  flex: 0.4;
+}
+.header .price,
+.content .price {
+  flex: 0.1;
+}
+.header .qty,
+.content .qty {
+  flex: 0.1;
+}
+.header .total,
+.content .total {
+  flex: 0.2;
+  text-align: center;
+}
+.header .delete,
+.content .delete {
+  flex: 0.1;
+  text-align: center;
+}
+.sub-cart .content {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-between;
+  border: 1px solid rgb(84, 84, 89);
+}
+.sub-cart .content .product {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.content .product img {
+  width: 70px;
+  height: 70px;
+}
+.content .product .details {
+  margin-top: 5px;
+  width: 60%;
+}
+.product .details a {
+  text-decoration: none;
+}
+.product .details p {
+  margin: 5px;
+  color: rgb(103, 98, 98);
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Neuton", serif;
+}
+.content .price p {
+  font-family: "Neuton", serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+.content .qty .item {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 20px;
+  font-family: "Neuton", serif;
+}
+.content .qty .item p {
+  font-family: "Neuton", serif;
+  font-size: 22px;
+}
+.content .total p {
+  font-family: "Neuton", serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+.content .delete button {
+  border: none;
+  outline: none;
+}
+.content .delete .del {
+  color: red;
+  font-size: 30px;
+}
+.content .delete .del:active {
+  transform: scale(1.2);
+}
+.sub-cart .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.sub-cart .bottom .continue {
+  width: 150px;
+  padding: 10px;
+  background: rgb(9, 9, 48);
+  color: white;
+  font-size: 14px;
+  border: 0;
+  border-radius: 20px;
+  font-family: "Playfair Display", serif;
+}
+.sub-cart .bottom .continue:active {
+  background: rgb(51, 51, 92);
+  transform: scale(1.0777);
+}
+.sub-cart .bottom .clear {
+  width: 120px;
+  padding: 10px;
+  background: orangered;
+  color: white;
+  font-size: 15px;
+  border: 0;
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+}
+.sub-cart .subtotal {
+  float: right;
+  margin-top: 20px;
+  font-size: 15px;
+  color: gray;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+}
+.sub-cart .subtotal .shipping-btn {
+  width: 270px;
+  padding: 10px;
+  background: rgb(9, 9, 48);
+  color: white;
+  font-size: 16px;
+  border: 0;
+  border-radius: 20px;
+  font-family: "Playfair Display", serif;
+}
+.sub-cart .subtotal .shipping-btn:active {
+  background: rgb(51, 51, 92);
+  transform: scale(1.0777);
+}
+.carts .empty {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: relative;
+  top: 0;
+}
+.carts .empty img {
+  width: 500px;
+  height: 400px;
+  display: block;
+  margin: 30px auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+@media screen and (max-width: 900px) {
+  .carts .sub-cart {
+    width: 95%;
+    padding: 5px 3px;
+  }
+  .sub-cart .header {
+    padding: 2px;
+  }
+  .sub-cart .header h2 {
+    font-size: 10px;
+  }
+  .header .price,
+  .content .price {
+    width: 90px;
+  }
+  .header .qty,
+  .content .qty {
+    width: 100px;
+  }
+  .header .product,
+  .content .product {
+    flex: 0.3;
+  }
+  .header .total,
+  .content .total {
+    flex: 0.1;
+  }
+  .sub-cart .content .product {
+    gap: 3px;
+  }
+  .content .product img {
+    width: 40px;
+    height: 40px;
+  }
+  .content .product .details {
+    width: 50%;
+  }
+  .sub-cart .header,
+  .sub-cart .content {
+    justify-content: space-between;
+  }
+  .product .details p {
+    font-size: 8px;
+  }
+  .content .qty .item {
+    font-size: 10px;
+    gap: 3px;
+  }
+  .content .qty .item p {
+    font-size: 10px;
+  }
+  .content .price p {
+    font-size: 10px;
+  }
+  .content .total p {
+    font-size: 10px;
+  }
+  .content .delete .del {
+    font-size: 15px;
+  }
+  .sub-cart .bottom .continue {
+    width: 100px;
+    padding: 5px;
+    font-size: 7px;
+  }
+  .sub-cart .bottom .clear {
+    width: 70px;
+    padding: 5px;
+    font-size: 8px;
+  }
+  .sub-cart .subtotal {
+    font-size: 10px;
+  }
+  .sub-cart .subtotal .shipping-btn {
+    width: 100px;
+    padding: 5px;
+    font-size: 8px;
+    float: right;
+  }
+}

@@ -1,0 +1,172 @@
+/* ===========POST REVIEW================ */
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.single-product .post-review {
+  margin-top: 20px;
+}
+.single-product .post-review h1 {
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+}
+.single-product .post-review .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.single-product .post-review .form-group input {
+  width: 65px;
+  padding: 3px;
+  font-size: 15px;
+  font-family: "Neuton", serif;
+}
+.single-product .post-review .form-group input::placeholder {
+  font-size: 13px;
+  color: rgb(176, 172, 172);
+}
+.single-product .post-review .form-group textarea {
+  resize: none;
+  padding: 9px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 150px;
+  font-family: "Neuton", serif;
+}
+.single-product .post-review .btn {
+  width: 100px;
+  padding: 3px;
+  margin-top: 10px;
+  background-color: rgb(6, 116, 6);
+  font-size: 22px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+  font-family: "Neuton", serif;
+}
+.single-product .post-review .btn:active {
+  transform: scale(0.944);
+  background-color: rgb(55, 136, 55);
+}
+
+/* ==================REVIEW============================ */
+.review-container {
+  margin-top: 20px;
+  user-select: none;
+  height: 100vh;
+}
+.review-container .overall-ratings {
+  text-align: center;
+}
+.review-container .overall-ratings p {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.review-container .heading {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.review-container .heading span {
+  width: 50px;
+  background-color: black;
+  height: 2px;
+}
+.review-container .heading h2 {
+  font-size: 28px;
+  font-family: "Neuton", serif;
+  text-transform: uppercase;
+}
+.review-container .all-review {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  height: 50vh;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.review-container .all-review .review-card {
+  width: 250px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  background: white;
+}
+.review-container .all-review .review-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid blue;
+}
+.review-container .all-review .review-card h4 {
+  font-family: "Neuton", serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.review-container .all-review .review-card span {
+  font-size: 13px;
+  font-family: "Playfair Display", serif;
+  color: rgb(57, 55, 55);
+  margin-bottom: 2px;
+}
+.review-container .all-review .review-card .star {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.review-container .all-review .review-card .star svg {
+  font-size: 18px !important;
+}
+.review-container .all-review .review-card p {
+  width: 95%;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  color: rgb(74, 73, 73);
+  margin-top: 5px;
+}
+.review-container .all-review .review-card .review-btn-group {
+  align-self: flex-end;
+}
+.review-container .all-review .review-card .review-btn-group button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.review-container .all-review .review-card .review-btn-group svg {
+  color: orangered;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.review-container .all-review .review-card .review-btn-group svg:active {
+  transform: scale(1.2);
+}
+@media screen and (max-width: 900px) {
+  .review-container .heading h2 {
+    font-size: 24px;
+  }
+  .review-container .heading span {
+    width: 35px;
+  }
+  .review-container .all-review {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  .review-container .all-review .review-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+.filled-star {
+  color: #db4e4b; /* Color for filled stars */
+  font-size: 16px;
+}
+
+.partial-star {
+  color: #db4e4b; /* Color for partial stars */
+  font-size: 16px;
+}
+
+.empty-star {
+  color: #d7d7d7; /* Color for empty stars */
+  font-size: 16px;
+}

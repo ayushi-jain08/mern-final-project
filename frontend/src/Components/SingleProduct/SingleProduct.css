@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.single-product {
+  position: relative;
+  top: 110px;
+  background-color: rgb(241, 240, 240);
+  width: 100%;
+  padding: 10px;
+}
+.single-product .sub-single {
+  max-width: 1100px;
+  margin: 0px auto;
+  background: white;
+  padding: 5px 10px;
+  height: fit-content;
+  border: 2px solid rgb(234, 230, 230);
+  border-radius: 5px;
+  box-shadow: 0px 5px 5px rgb(209, 207, 207);
+  display: flex;
+  gap: 3px;
+  box-sizing: border-box;
+}
+.single-product .sub-single .left {
+  margin: 15px;
+  border-radius: 3px;
+  padding: 5px 10px;
+  flex: 0.5;
+}
+.single-product .sub-single .left .full-slider {
+  width: 100%;
+  height: 500px;
+}
+.single-product .sub-single .right {
+  padding-right: 30px;
+  flex: 0.5;
+  box-sizing: border-box;
+}
+.single-product .right .content {
+  border-bottom: 1px solid rgb(210, 209, 209);
+  display: flex;
+  flex-direction: column;
+}
+.sub-single .right .content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 1px solid rgb(210, 209, 209);
+  font-family: "Playfair Display", serif;
+  height: 35px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.right .content .price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  height: 30px;
+  box-sizing: border-box;
+  line-height: 20px;
+}
+.right .content .price span {
+  font-family: "Neuton", serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+.right .content .price p {
+  font-family: "Neuton", serif;
+  font-size: 28px;
+  color: red;
+  font-weight: 500;
+}
+.right .content .price strike {
+  font-size: 13px;
+  color: gray;
+  font-family: "Neuton", serif;
+}
+.right .content .icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.right .content .icons .rating {
+  color: gray;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.right .content .icons .star {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.right .content .four-content {
+  display: flex;
+  flex-direction: column;
+}
+.right .content .brand,
+.cat,
+.desc,
+.stock {
+  color: rgb(108, 107, 107);
+  font-family: "Neuton", serif;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+.right .content .qty {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 18px;
+}
+.right .content .qty span strong {
+  font-family: "Neuton", serif;
+}
+.right .lower-content .heart {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.right .lower-content .heart p {
+  color: rgb(9, 9, 65);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 17px;
+}
+.right .lower-content .heart .icon {
+  color: rgb(204, 194, 194);
+}
+.right .lower-content .heart .red {
+  color: red;
+  transform: scale(1.1);
+}
+.right .lower-content .heart .white {
+  color: rgb(188, 182, 182);
+}
+.right .accor {
+  margin-top: 30px;
+}
+.lower-content .two-btn button {
+  width: 140px;
+  padding: 10px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  outline: none;
+  margin-top: 10px;
+}
+.lower-content .two-btn .add {
+  background-color: rgb(8, 8, 58);
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+.lower-content .two-btn .add:active {
+  background: white;
+  color: rgb(8, 8, 46);
+  border: 1px solid black;
+  transition: all 0.3s;
+}
+
+.lower-content .two-btn .buy {
+  background: orange;
+  margin-left: 10px;
+  color: rgb(8, 8, 45);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+.lower-content .two-btn .buy:active {
+  background: white;
+  color: rgb(8, 8, 46);
+  border: 1px solid black;
+  transition: all 0.3s;
+}
+.single-product .review {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  .single-product {
+    top: 100px;
+    padding: 0;
+  }
+  .single-product .sub-single {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    flex-direction: column;
+    padding: 10px 0px;
+  }
+  .single-product .sub-single .left {
+    padding: 10px 0px;
+  }
+  .single-product .sub-single .left .full-slider {
+    height: 400px;
+  }
+  .single-product .sub-single .right > div {
+    padding: 0 8px;
+  }
+  .single-product .review {
+    width: 100%;
+  }
+}

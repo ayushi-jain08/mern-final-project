@@ -1,0 +1,30 @@
+.related-product {
+  max-width: 1100px;
+  margin: 20px auto;
+  position: relative;
+  top: 100px;
+}
+
+.related-product .products {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.related-product .heading {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.related-product .heading span {
+  width: 50px;
+  background-color: black;
+  height: 2px;
+}
+.related-product .heading h2 {
+  font-size: 28px;
+  font-family: "Neuton", serif;
+  text-transform: uppercase;
+}
