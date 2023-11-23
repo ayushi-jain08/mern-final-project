@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
 import { useDispatch, useSelector } from "react-redux";
 import Accordions from "./Accordions";
-import { FaHeart } from "react-icons/fa6";
 import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 import RenderStars from "../Function/RenderStars";
 import {
@@ -26,8 +25,7 @@ const SingleProduct = () => {
   const dispatch = useDispatch();
   const { ids } = useParams();
   const productInfo = useSelector((state) => state.product);
-  const { singleProduct, loading, allReview, relatedProduct, cartProductInfo } =
-    productInfo;
+  const { singleProduct, loading, allReview, relatedProduct } = productInfo;
   const {
     _id,
     name,
@@ -41,19 +39,17 @@ const SingleProduct = () => {
     discount,
     stock,
   } = singleProduct;
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [_scrollPosition, setScrollPosition] = useState(0);
   const users = useSelector((state) => state.user);
   const { currentUser } = users;
   // ====================SCROLL POSITION====================
 
-  console.log("ddfff", scrollPosition);
   useEffect(() => {
     const fetchData = async () => {
       if (ids && ids !== "") {
         await dispatch(fetchSingleProduct(ids));
         await dispatch(fetchGetReview(ids));
         await dispatch(fetchRelatedProduct(ids));
-        window.scrollTo(0, scrollPosition);
       }
     };
 
@@ -68,7 +64,6 @@ const SingleProduct = () => {
       setCount((prevCount) => prevCount - 1);
     }
   };
-  const handleWishList = async (productId) => {};
 
   const handleAddToCart = async () => {
     const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
@@ -83,7 +78,8 @@ const SingleProduct = () => {
   const handleCheckOut = () => {};
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      const position = window.scrollY;
+      setScrollPosition(position);
     };
 
     window.addEventListener("scroll", handleScroll);

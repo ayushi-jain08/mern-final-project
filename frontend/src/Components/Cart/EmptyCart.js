@@ -1,6 +1,4 @@
 import React from "react";
-import gif from "../../Images/cart.gif";
-import { NavLink } from "react-router-dom";
 
 const EmptyCart = () => {
   return (

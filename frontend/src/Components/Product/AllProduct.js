@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 const AllProduct = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [_scrollPosition, setScrollPosition] = useState(0);
   const [sortOrder, setSortOrder] = useState("");
   const [brandFilter, setBrandFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,7 +87,8 @@ const AllProduct = () => {
   // ====================SCROLL POSITION====================
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      const position = window.scrollY;
+      setScrollPosition(position);
     };
 
     window.addEventListener("scroll", handleScroll);

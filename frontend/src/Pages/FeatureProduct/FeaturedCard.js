@@ -1,5 +1,4 @@
 import React from "react";
-import purse from "../../Images/purse.jpg";
 import { FaHeart } from "react-icons/fa6";
 
 const FeaturedCard = ({ item }) => {

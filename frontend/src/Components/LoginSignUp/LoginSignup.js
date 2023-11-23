@@ -99,7 +99,7 @@ const LoginSignup = () => {
     if (storedUserInfo) {
       navigate(location.state || "/");
     }
-  }, [navigate]);
+  }, [location.state, navigate]);
 
   return (
     <>
