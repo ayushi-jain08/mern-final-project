@@ -78,7 +78,7 @@ const LoginSignup = () => {
       loginTab.current.classList.remove("shiftToLeft");
     }
   }, [message]);
-  console.log("msg", message);
+
   const loginSubmit = async (e) => {
     e.preventDefault();
     if (!loginEmail || !loginPassword) {
@@ -101,9 +101,6 @@ const LoginSignup = () => {
     }
   }, [navigate]);
 
-  if (loading) {
-    <div>Loading...</div>;
-  }
   return (
     <>
       <div className="LoginSignUpContainer">

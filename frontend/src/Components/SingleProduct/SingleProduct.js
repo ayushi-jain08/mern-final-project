@@ -92,7 +92,7 @@ const SingleProduct = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log("cart", cartProductInfo);
+
   return (
     <>
       <div className="single-product">

@@ -40,11 +40,7 @@ const TopCollection = () => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
-  if (!Array.isArray(categoryProduct)) {
-    // Handle the case where categoryProduct is not an array
-    return <p>Error: categoryProduct is not an array</p>;
-  }
-  console.log("categoryPodicy", categoryProduct);
+
   if (error) {
     return <p>Error: {error}</p>;
   }

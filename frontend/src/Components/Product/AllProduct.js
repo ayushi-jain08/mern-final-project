@@ -15,7 +15,7 @@ const AllProduct = () => {
   const [brandFilter, setBrandFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [categorys, setCategorys] = useState("");
-  const [tPages, setTPages] = useState(1);
+  // const [tPages, setTPages] = useState(1);
   const { allProductInfo, totalPage, loading, error } = products;
   const brands = [
     "Nature’s Bounty",
@@ -38,7 +38,6 @@ const AllProduct = () => {
     };
     fetchData();
   }, [dispatch, currentPage, brandFilter, categorys, sortOrder]);
-  console.log("allProductInfo", allProductInfo);
 
   const handleSortChange = (order) => {
     setSortOrder(order);

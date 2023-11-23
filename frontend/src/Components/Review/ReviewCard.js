@@ -10,7 +10,7 @@ const ReviewCard = ({ item, ids }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user);
   const { currentUser } = users;
-  console.log("uuuu", item._id);
+
   const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
   const formattedDate = new Date(item.createdAt).toLocaleDateString();
 

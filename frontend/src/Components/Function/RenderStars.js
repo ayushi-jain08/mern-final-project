@@ -1,8 +1,6 @@
-import { FaStar } from "react-icons/fa";
 import "./RenderStars.css";
 import React from "react";
-import { FaStarHalfAlt } from "react-icons/fa";
-import { IoStar, IoStarHalf, IoStarSharp } from "react-icons/io5";
+import { IoStar, IoStarHalf } from "react-icons/io5";
 
 const RenderStars = (rating) => {
   const ratings = rating || 0;

@@ -8,18 +8,18 @@ import CircularProgress from "@mui/material/CircularProgress";
 const FeatureProduct = () => {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.product);
-  const { allProductInfo, loading , error} = productDetail;
+  const { allProductInfo, loading, error } = productDetail;
   const featuredProducts = allProductInfo.filter(
     (product) => product.feature === true
   );
-  console.log("gg", featuredProducts);
+
   useEffect(() => {
     dispatch(fetchAllProduct({ page: "", sort: "", brand: "", category: "" }));
   }, [dispatch]);
   return (
     <>
       <div className="featured-product">
-      {error && (
+        {error && (
           <p className="error" style={{ color: "red" }}>
             {error}
           </p>
