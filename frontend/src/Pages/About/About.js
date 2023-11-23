@@ -13,12 +13,9 @@ const About = ({ path = "loginsignup" }) => {
       });
     }
   }, [navigate, location.pathname, path]);
-  const headerStyle = {
-    backgroundColor: scrollPosition > 100 ? "transparent" : "transparent",
-    transition: "background-color 0.3s ease",
-  };
+ 
   return (
-    <div className="about" style={headerStyle}>
+    <div className="about" >
       about
     </div>
   );

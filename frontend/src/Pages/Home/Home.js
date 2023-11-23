@@ -19,10 +19,14 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const headerStyle = {
+    backgroundColor: scrollPosition > 100 ? "transparent" : "transparent",
+    transition: "background-color 0.3s ease",
+  };
 
   return (
     <>
-      <div className="home">
+      <div className="home" style={headerStyle}>
         <Banner />
         <Category />
         <FeatureProduct />
