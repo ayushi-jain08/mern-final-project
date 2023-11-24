@@ -18,6 +18,7 @@
   height: 70vh;
   box-sizing: border-box;
   overflow: hidden;
+  border: 2px solid blue;
 }
 .login_signUp_toggle {
   display: flex;
@@ -144,10 +145,11 @@
 @media screen and (max-width: 900px) {
   .LoginSignUpContainer {
     background-color: white;
+    margin-top: 0;
   }
   .LoginSignUpBox {
     width: 100vw;
-    height: 90vh;
+    height: 70vh;
   }
   .loginForm,
   .signUpForm {

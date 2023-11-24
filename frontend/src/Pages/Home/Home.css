@@ -48,20 +48,26 @@ font-family: 'Roboto', sans-serif; */
 }
 @media screen and (max-width: 900px) {
   .banner {
-    padding: 0 10px;
+    padding: 0 3px;
     height: 250px;
   }
   .banner .left span {
-    font-size: 20px;
+    font-size: 24px;
+    border: 2px solid blue;
+    font-weight: 700;
+  }
+  .banner .left {
+    padding: 5px;
   }
   .banner .left p {
-    font-size: 15px;
+    font-size: 22px;
   }
   .banner .right {
     width: 220px;
     box-sizing: border-box;
     height: 100%;
     text-align: center;
+    border: 2px solid red;
   }
   .banner .right img {
     text-align: center;
@@ -70,7 +76,7 @@ font-family: 'Roboto', sans-serif; */
     object-fit: cover;
   }
   .banner .left .shop-now {
-    padding: 5px 8px;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-size: 15px;
   }
 }

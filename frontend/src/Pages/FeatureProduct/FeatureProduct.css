@@ -87,7 +87,10 @@ font-family: 'Roboto', sans-serif; */
     width: 80%;
     margin-bottom: 20px;
   }
+  .featured-product .heading span {
+    width: 40px;
+  }
   .featured-product .heading h2 {
-    font-size: 25px;
+    font-size: 22px;
   }
 }

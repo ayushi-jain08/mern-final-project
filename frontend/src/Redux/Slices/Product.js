@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const HOST = "http://localhost:8080";
+const HOST = "https://mern-final-foyk.onrender.com";
 // ==================CATEGORY WISE PRODUCTS=========================
 export const fetchCategory = createAsyncThunk(
   "data/fetchRegister",
