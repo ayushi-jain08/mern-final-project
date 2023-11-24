@@ -53,7 +53,7 @@ font-family: 'Roboto', sans-serif; */
   }
   .banner .left span {
     font-size: 24px;
-    border: 2px solid blue;
+
     font-weight: 700;
   }
   .banner .left {
@@ -67,7 +67,6 @@ font-family: 'Roboto', sans-serif; */
     box-sizing: border-box;
     height: 100%;
     text-align: center;
-    border: 2px solid red;
   }
   .banner .right img {
     text-align: center;

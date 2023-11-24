@@ -28,3 +28,17 @@
   font-family: "Neuton", serif;
   text-transform: uppercase;
 }
+@media screen and (max-width: 900px) {
+  .related-product {
+    width: 100%;
+  }
+  .related-product .heading {
+    gap: 5px;
+  }
+  .related-product .heading span {
+    width: 35px;
+  }
+  .related-product .heading h2 {
+    font-size: 22px;
+  }
+}

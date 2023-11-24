@@ -33,12 +33,16 @@ const Cart = ({ path = "loginsignup" }) => {
 
   //======================FETCH CART PRODUCT==================//
   useEffect(() => {
-    if (!StorageUserInfo) {
-      navigate(`/${path}`, {
-        state: location.pathname,
-      });
-    }
-    dispatch(fetchCartProduct());
+    const fetchData = async () => {
+      if (!StorageUserInfo) {
+        navigate(`/${path}`, {
+          state: location.pathname,
+        });
+      }
+      dispatch(fetchCartProduct());
+    };
+
+    fetchData();
   }, [StorageUserInfo, navigate, path, location, dispatch]);
 
   //========================SUBTOTAL====================//
