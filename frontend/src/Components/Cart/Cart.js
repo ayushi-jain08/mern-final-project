@@ -32,18 +32,27 @@ const Cart = ({ path = "loginsignup" }) => {
   };
 
   //======================FETCH CART PRODUCT==================//
+  // const useMountEffect = (handler) => useEffect(handler, []);
+  // useMountEffect(() => {
+  //   if (!StorageUserInfo) {
+  //     navigate(`/${path}`, {
+  //       state: location.pathname,
+  //     });
+  //   }
+  //   dispatch(fetchCartProduct());
+  // });
+  const fetchData = async () => {
+    if (!StorageUserInfo) {
+      navigate(`/${path}`, {
+        state: location.pathname,
+      });
+    }
+    dispatch(fetchCartProduct());
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      if (!StorageUserInfo) {
-        navigate(`/${path}`, {
-          state: location.pathname,
-        });
-      }
-      dispatch(fetchCartProduct());
-    };
-
     fetchData();
-  }, [StorageUserInfo, navigate, path, location, dispatch]);
+    // eslint-disable-next-line
+  }, [dispatch]);
 
   //========================SUBTOTAL====================//
   const totalSubtotal = cartProductInfo.reduce((accumulator, cartItem) => {

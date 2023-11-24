@@ -189,7 +189,7 @@ a {
 @media screen and (max-width: 900px) {
   .carts .sub-cart {
     width: 95%;
-    padding: 5px 3px;
+    padding: 3px;
   }
   .sub-cart .header {
     padding: 2px;
@@ -207,21 +207,24 @@ a {
   }
   .header .product,
   .content .product {
-    flex: 0.3;
+    flex: 0.267;
   }
   .header .total,
   .content .total {
     flex: 0.1;
   }
   .sub-cart .content .product {
-    gap: 3px;
+    gap: 2px;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .content .product img {
-    width: 40px;
+    width: 60px;
     height: 40px;
   }
   .content .product .details {
-    width: 50%;
+    width: 95%;
+    margin-top: 0;
   }
   .sub-cart .header,
   .sub-cart .content {
@@ -229,6 +232,8 @@ a {
   }
   .product .details p {
     font-size: 8px;
+
+    margin: 0;
   }
   .content .qty .item {
     font-size: 10px;

@@ -71,6 +71,7 @@ const initialState = {
   message: "",
   loading: false,
   error: null,
+  loggedIn: false,
 };
 
 const UserSlice = createSlice({
@@ -99,11 +100,13 @@ const UserSlice = createSlice({
       .addCase(fetchLogin.fulfilled, (state, action) => {
         state.loading = false;
         state.currentUser = action.payload;
+        state.loggedIn = true;
         state.error = null;
       })
       .addCase(fetchLogin.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.loggedIn = false;
       })
       .addCase(fetchLogout.pending, (state) => {
         state.loading = true;
@@ -113,6 +116,7 @@ const UserSlice = createSlice({
         state.loading = false;
         state.currentUser = " ";
         localStorage.removeItem("userDataInfo");
+        state.loggedIn = false;
       })
       .addCase(fetchLogout.rejected, (state, action) => {
         state.loading = false;
