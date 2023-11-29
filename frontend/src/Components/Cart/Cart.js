@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  DeleteWholeCart,
   RemoveCartProduct,
   fetchCartProduct,
   fetchUpdateCartQty,
@@ -32,15 +33,6 @@ const Cart = ({ path = "loginsignup" }) => {
   };
 
   //======================FETCH CART PRODUCT==================//
-  // const useMountEffect = (handler) => useEffect(handler, []);
-  // useMountEffect(() => {
-  //   if (!StorageUserInfo) {
-  //     navigate(`/${path}`, {
-  //       state: location.pathname,
-  //     });
-  //   }
-  //   dispatch(fetchCartProduct());
-  // });
   const fetchData = async () => {
     if (!StorageUserInfo) {
       navigate(`/${path}`, {
@@ -54,13 +46,20 @@ const Cart = ({ path = "loginsignup" }) => {
     // eslint-disable-next-line
   }, [dispatch]);
 
+  //==================DELETE WHOLE PRODUCT IN CART=================//
+  const handleWholeCartDelete = async () => {
+    await dispatch(DeleteWholeCart());
+    await dispatch(fetchCartProduct());
+  };
   //========================SUBTOTAL====================//
   const totalSubtotal = cartProductInfo.reduce((accumulator, cartItem) => {
     const itemSubtotal = cartItem.product.cost * cartItem.quantity;
     return accumulator + itemSubtotal;
   }, 0);
   //=================CHECKOUT FUNCTION====================//
-  const handleCheckOut = () => {};
+  const handleCheckOut = () => {
+    sessionStorage.setItem("orderProduct", JSON.stringify(cartProductInfo));
+  };
   return (
     <>
       <div className="carts">
@@ -131,7 +130,9 @@ const Cart = ({ path = "loginsignup" }) => {
               <NavLink to="/product">
                 <button className="continue">Continue Shopping</button>
               </NavLink>
-              <button className="clear">Clear Cart</button>
+              <button className="clear" onClick={handleWholeCartDelete}>
+                Clear Cart
+              </button>
             </div>
             <div className="subtotal">
               <p style={{ float: "right", fontFamily: "Playfair Display" }}>

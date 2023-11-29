@@ -57,7 +57,11 @@ font-family: 'Roboto', sans-serif; */
 }
 .navbar .right-list li {
   list-style: none;
-  padding: 8px 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   box-sizing: border-box;
   transition: all 0.3s ease-in;
@@ -77,20 +81,25 @@ font-family: 'Roboto', sans-serif; */
 @media screen and (max-width: 900px) {
   .navbar {
     justify-content: space-between;
-    padding: 10px 10px;
+    padding: 5px 10px;
+    height: 50px;
   }
   .navbar .logo {
     margin-left: 0;
   }
+  .navbar .logo img {
+    width: 90px;
+    height: 40px;
+  }
   .navbar .menu svg {
     text-align: center;
     display: block;
-    font-size: 25px;
+    font-size: 18px;
     margin-bottom: 20px;
   }
   .navbar .center-list {
     position: fixed;
-    top: 105px;
+    top: 90px;
     left: -550px;
     backdrop-filter: blur(13px) saturate(180%);
     -webkit-backdrop-filter: blur(13px) saturate(180%);
@@ -104,21 +113,26 @@ font-family: 'Roboto', sans-serif; */
     align-items: center;
     padding: 20px 0;
     transition: all 0.5s linear;
+    z-index: 99;
   }
   .navbar .left {
     left: -20px;
   }
   .navbar .center-list li {
-    padding: 20px 0;
+    padding: 15px 0;
   }
   .navbar .center-list li a {
     color: white;
-    font-size: 18px;
+    font-size: 12px;
   }
   .active {
     background-color: black;
   }
+  .navbar .right-list li {
+    width: 30px;
+    height: 30px;
+  }
   .navbar .right-list li svg {
-    font-size: 23px;
+    font-size: 15px;
   }
 }

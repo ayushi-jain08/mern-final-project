@@ -41,6 +41,7 @@ font-family: 'Playfair Display', serif; */
   border-bottom: 1px solid rgb(210, 209, 209);
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .sub-single .right .content h2 {
   font-size: 20px;
@@ -116,27 +117,35 @@ font-family: 'Playfair Display', serif; */
 }
 .right .lower-content .heart {
   display: flex;
-  align-items: center;
-  gap: 3px;
+
+  gap: 5px;
+  margin-top: 10px;
 }
 .right .lower-content .heart p {
   color: rgb(9, 9, 65);
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 17px;
+  font-family: "Neuton", serif;
 }
-.right .lower-content .heart .icon {
-  color: rgb(204, 194, 194);
+.right .lower-content .heart svg {
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.right .lower-content .heart svg:active {
+  transform: scale(1.2);
 }
 .right .lower-content .heart .red {
   color: red;
-  transform: scale(1.1);
 }
 .right .lower-content .heart .white {
   color: rgb(188, 182, 182);
 }
 .right .accor {
   margin-top: 30px;
+}
+.lower-content .two-btn {
+  display: flex;
+  gap: 9px;
 }
 .lower-content .two-btn button {
   width: 140px;
@@ -163,7 +172,7 @@ font-family: 'Playfair Display', serif; */
 
 .lower-content .two-btn .buy {
   background: orange;
-  margin-left: 10px;
+
   color: rgb(8, 8, 45);
   font-family: "Playfair Display", serif;
   font-weight: 600;

@@ -48,7 +48,52 @@ export const CreateProduct = async (req, res, next) => {
     });
   }
 };
+// ==================UPDATE PRODUCT======================
+export const UpdateProduct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    // Find the product by ID
+    const product = await Product.findById(id);
 
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
+    }
+
+    // Update product properties based on request body
+    if (req.body.name) {
+      product.name = req.body.name;
+    }
+
+    if (req.body.description) {
+      product.description = req.body.description;
+    }
+
+    if (req.body.price) {
+      product.price = req.body.price;
+    }
+
+    if (req.body.brand) {
+      product.brand = req.body.brand;
+    }
+    if (req.body.subcategory) {
+      product.subcategory = req.body.subcategory;
+    }
+
+    // Save the updated product
+    await product.save();
+
+    res.status(200).json({
+      message: "Product updated successfully",
+      updatedProduct: product,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: `Server Error: ${error}`,
+    });
+  }
+};
 //===========================GET ALL PRODUCTS======================
 export const GetAllProduct = async (req, res) => {
   try {
@@ -262,5 +307,97 @@ export const DeleteCartProduct = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+//=================CLEAR ALL CART PRODUCT================//
+export const DeleteWholeCartProduct = async (req, res, next) => {
+  const userId = req.user._id;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: { cart: [] } },
+      { new: true }
+    );
+    res.status(200).json("whole cart product deleted");
+  } catch (error) {
+    next(error);
+  }
+};
+// ==================ADD TO WISHLIST==================
+export const AddToWishList = async (req, res) => {
+  try {
+    const { productId } = req.body;
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.status(401).json({ error: "Invalid User" });
+    }
+    const product = await Product.findById(productId);
+    if (!product) {
+      console.error(`Product with ID ${productId} not found.`);
+      return res.status(404).json({ message: "Product not found" });
+    }
+    const existingwishItem = user.wishlist.find(
+      (wishitem) => wishitem.product.toString() === productId
+    );
+
+    if (existingwishItem) {
+      user.wishlist.pull({ product: product._id });
+      await user.save();
+      return res.status(200).json({ success: true, productId, added: false });
+    } else {
+      user.wishlist.push({ product: product._id });
+      await user.save();
+      return res.status(200).json({ success: true, productId, added: true });
+    }
+  } catch (error) {
+    console.error(error); // Log the error for debugging
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+// ==========================GET WISHLIST====================
+export const GetWishList = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id).populate("wishlist.product");
+    if (!user) {
+      return res.status(401).json({ error: "Invalid User" });
+    }
+    const wishlistItem = user.wishlist.map((wishitem) => ({
+      ...wishitem.toObject(),
+    }));
+    res.status(200).json(wishlistItem);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+// ==========================SEARCH PRODUCT API===========================
+export const SearchProduct = async (req, res) => {
+  try {
+    const search = req.query.searchTerm || " ";
+    const product = await Product.find({
+      $or: [
+        { name: { $regex: search, $options: "i" } },
+        { brand: { $regex: search, $options: "i" } },
+        { category: { $regex: search, $options: "i" } },
+      ],
+    });
+    res.status(200).json(product);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const ProductByCategory = async (req, res) => {
+  const { category } = req.params;
+
+  try {
+    const products = await Product.find({ category });
+    res.status(200).json(products);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };

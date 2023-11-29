@@ -34,9 +34,11 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="right-list">
-          <li>
-            <FaHeart />
-          </li>
+          <Link to="/wishlist">
+            <li>
+              <FaHeart />
+            </li>
+          </Link>
 
           <Link to="/cart">
             <li>

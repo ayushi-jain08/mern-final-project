@@ -4,6 +4,9 @@ import "./Home.css";
 import Category from "../Category/Category";
 import FeatureProduct from "../FeatureProduct/FeatureProduct";
 import TopCollection from "../TopCollection/TopCollection";
+import Banners from "../Banners/Banners";
+import OurFeatures from "../OurFeatures/OurFeatures";
+import ProductType from "../../Components/ProductType/ProductType";
 
 const Home = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -27,10 +30,13 @@ const Home = () => {
   return (
     <>
       <div className="home" style={headerStyle}>
-        <Banner />
-        <Category />
+        <Banners />
         <FeatureProduct />
+        <OurFeatures />
+        <Category />
         <TopCollection />
+        <Banner />
+        <ProductType />
       </div>
     </>
   );

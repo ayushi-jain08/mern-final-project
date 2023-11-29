@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.icons-shipping {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.icons-shipping .all-icons-flex {
+  display: flex;
+  align-items: baseline;
+}
+.icons-shipping .all-icons-flex > div {
+  width: 30px;
+}
+.icons-shipping .all-icons-flex > div p {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Neuton", serif;
+}
+.icons-shipping svg {
+  font-size: 30px;
+}
+
+.icons-shipping .all-icons-flex .first {
+  height: 0.5px;
+  width: 400px;
+}
+.icons-shipping .all-icons-flex .second {
+  height: 0.5px;
+  width: 400px;
+}
+
+@media screen and (max-width: 900px) {
+  .icons-shipping {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  .icons-shipping .all-icons-flex .first {
+    width: 120px;
+  }
+  .icons-shipping .all-icons-flex .second {
+    width: 120px;
+  }
+  .icons-shipping .all-icons-flex > div p {
+    font-size: 10px;
+  }
+}

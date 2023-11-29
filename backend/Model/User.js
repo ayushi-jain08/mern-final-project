@@ -28,6 +28,31 @@ var userSchema = new mongoose.Schema({
       type: String,
     },
   },
+  address: {
+    street: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
+    },
+    country: {
+      type: String,
+      required: true,
+    },
+    pinCode: {
+      type: String,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+  },
   cart: [
     {
       product: {
@@ -56,26 +81,26 @@ var userSchema = new mongoose.Schema({
       ref: "Review",
     },
   ],
-  //   contactFormSubmissions: [
-  //     {
-  //       name: {
-  //         type: String,
-  //         required: true,
-  //       },
-  //       email: {
-  //         type: String,
-  //         required: true,
-  //       },
-  //       message: {
-  //         type: String,
-  //         required: true,
-  //       },
-  //       timestamp: {
-  //         type: Date,
-  //         default: Date.now,
-  //       },
-  //     },
-  //   ],
+  contactFormSubmissions: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+      message: {
+        type: String,
+        required: true,
+      },
+      timestamp: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

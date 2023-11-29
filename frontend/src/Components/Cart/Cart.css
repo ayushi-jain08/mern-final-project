@@ -58,7 +58,7 @@ font-family: 'Playfair Display', serif; */
   align-items: center;
   padding: 5px;
   justify-content: space-between;
-  border: 1px solid rgb(84, 84, 89);
+  border-bottom: 1px solid rgb(175, 175, 179);
 }
 .sub-cart .content .product {
   display: flex;
@@ -169,26 +169,44 @@ font-family: 'Playfair Display', serif; */
   transform: scale(1.0777);
 }
 .carts .empty {
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background-color: white;
+}
+.carts .empty span svg {
+  font-size: 80px;
+  color: orangered;
+}
+.carts .empty p {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Neuton", serif;
+}
+.carts .empty button {
+  border: 1px solid transparent;
+  outline: none;
+  background: rgb(2, 2, 50);
+  font-size: 17px;
+  font-family: "Neuton", serif;
+  padding: 8px 25px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.carts .empty button:active {
+  border: 1px solid black;
   background: white;
-  position: relative;
-  top: 0;
+  color: black;
 }
-.carts .empty img {
-  width: 500px;
-  height: 400px;
-  display: block;
-  margin: 30px auto;
-}
-
 a {
   color: white;
   text-decoration: none;
 }
 @media screen and (max-width: 900px) {
   .carts .sub-cart {
-    width: 95%;
+    width: 97%;
     padding: 3px;
   }
   .sub-cart .header {
@@ -197,17 +215,9 @@ a {
   .sub-cart .header h2 {
     font-size: 10px;
   }
-  .header .price,
-  .content .price {
-    width: 90px;
-  }
-  .header .qty,
-  .content .qty {
-    width: 100px;
-  }
   .header .product,
   .content .product {
-    flex: 0.267;
+    flex: 0.277;
   }
   .header .total,
   .content .total {
@@ -223,7 +233,7 @@ a {
     height: 40px;
   }
   .content .product .details {
-    width: 95%;
+    width: 100%;
     margin-top: 0;
   }
   .sub-cart .header,
@@ -232,29 +242,28 @@ a {
   }
   .product .details p {
     font-size: 8px;
-
     margin: 0;
   }
   .content .qty .item {
-    font-size: 10px;
+    font-size: 12px;
     gap: 3px;
   }
   .content .qty .item p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .content .price p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .content .total p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .content .delete .del {
-    font-size: 15px;
+    font-size: 18px;
   }
   .sub-cart .bottom .continue {
-    width: 100px;
+    width: 80px;
     padding: 5px;
-    font-size: 7px;
+    font-size: 6px;
   }
   .sub-cart .bottom .clear {
     width: 70px;
@@ -269,5 +278,15 @@ a {
     padding: 5px;
     font-size: 8px;
     float: right;
+  }
+  .carts .empty span svg {
+    font-size: 45px;
+  }
+  .carts .empty p {
+    font-size: 18px;
+  }
+  .carts .empty button {
+    font-size: 14px;
+    padding: 5px 10px;
   }
 }

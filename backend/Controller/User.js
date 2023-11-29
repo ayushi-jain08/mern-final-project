@@ -85,3 +85,66 @@ export const loginUser = async (req, res, next) => {
     next(error);
   }
 };
+
+// ===================USER DATA=======================
+export const aboutUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+   
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+export const AddShippingAddress = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { street, city, state, country, pinCode, phone } = req.body;
+
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update the address fields
+    user.address.street = street;
+    user.address.city = city;
+    user.address.state = state;
+    user.address.country = country;
+    user.address.pinCode = pinCode;
+    user.address.phone = phone;
+
+    // Save the updated user
+    const updatedUser = await user.save();
+
+    res
+      .status(200)
+      .json({ message: "Address updated successfully", user: updatedUser });
+  } catch (error) {
+    console.error("Error adding address:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+// ======================CONTACT US FORM======================
+export const PostContact = async (req, res) => {
+  const { name, email, message, userId } = req.body;
+  try {
+    const ConatctSubmit = { name, email, message, timestamp: new Date() };
+    console.log("oo", userId);
+    const user = await User.findById(userId);
+    user.contactFormSubmissions.push(ConatctSubmit);
+
+    await user.save();
+
+    res.status(200).json({ message: "Contact form submitted successfully." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error });
+  }
+};

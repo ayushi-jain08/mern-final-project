@@ -7,7 +7,7 @@ import { MdFace } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLogin, fetchRegister } from "../../Redux/Slices/User";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/material/CircularProgress";
 
@@ -213,7 +213,6 @@ const LoginSignup = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 };

@@ -5,8 +5,8 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif; */
 .top-collection {
   max-width: 1100px;
-  margin: 50px auto;
-  height: 100vh;
+  margin: 20px auto;
+  padding: 10px 0;
 }
 .top-collection .head {
   text-align: center;
@@ -118,14 +118,23 @@ font-family: 'Roboto', sans-serif; */
   outline: none;
   padding: 5px 7px;
   border-radius: 50%;
-  background-color: orangered;
+  background-color: rgb(221, 220, 220);
   position: absolute;
   right: 10px;
   top: 5px;
 }
 .selected-category-product .collection-card .add-to-wishlist svg {
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 22px;
+}
+.selected-category-product .collection-card .add-to-wishlist .red {
+  color: red;
+}
+.selected-category-product .collection-card .add-to-wishlist .white {
+  color: rgb(255, 255, 255);
+}
+.selected-category-product .collection-card .add-to-wishlist svg:active {
+  transform: scale(1.2);
 }
 @media screen and (max-width: 900px) {
   .top-collection {
@@ -136,14 +145,17 @@ font-family: 'Roboto', sans-serif; */
     margin-top: 30px;
     flex-wrap: wrap;
   }
-
+  .top-collection .category-collection {
+    justify-content: space-between;
+    gap: 5px;
+  }
   .top-collection .category-collection .category-btn {
     width: 80px;
     font-size: 12px;
-    padding: 10px 8px;
+    padding: 10px 5px;
   }
   .top-collection .selected-category-product .collection-card {
-    width: 175px;
+    width: 145px;
     height: 260px;
     margin-bottom: 15px;
     border: 2px solid rgb(229, 227, 227);
@@ -157,7 +169,7 @@ font-family: 'Roboto', sans-serif; */
     padding: 5px 5px;
   }
   .selected-category-product .collection-card .featured-content h4 {
-    padding: 5px 10px;
+    padding: 5px 0px;
   }
   .selected-category-product .collection-card .featured-content h4 {
     font-size: 10px;
@@ -168,10 +180,16 @@ font-family: 'Roboto', sans-serif; */
     .icons
     .star
     svg {
-    font-size: 15px;
+    font-size: 12px;
   }
   .selected-category-product .collection-card .featured-content .price {
     padding: 4px 7px;
     font-size: 8px;
+  }
+  .selected-category-product .collection-card .add-to-wishlist {
+    padding: 1px 5px;
+  }
+  .selected-category-product .collection-card .add-to-wishlist svg {
+    font-size: 15px;
   }
 }

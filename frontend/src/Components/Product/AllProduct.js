@@ -6,6 +6,7 @@ import "./Product.css";
 import { GiShop } from "react-icons/gi";
 import { MdCategory } from "react-icons/md";
 import CircularProgress from "@mui/material/CircularProgress";
+import Pagination from "../Function/Pagination";
 
 const AllProduct = () => {
   const dispatch = useDispatch();
@@ -102,96 +103,94 @@ const AllProduct = () => {
     transition: "background-color 0.3s ease",
   };
   return (
-    <div className="all-product-page" style={headerStyle}>
-      <div className="all-product">
-        <div className="sub-products">
-          <div className="left">
-            <div className="shop">
-              <div className="main">
-                <h3>
-                  <GiShop /> Shop by Brand
-                </h3>
-                <ul>
-                  {brands.map((brand, i) => (
-                    <li
-                      key={i}
-                      className={brandFilter === brand ? "selected" : ""}
-                      onClick={() => handleBrandClick(brand)}
-                    >
-                      {brand}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="filter">
-              <div className="main">
-                <h3>
-                  <MdCategory /> Category
-                </h3>
-                <ul>
-                  {categories.map((cat, i) => (
-                    <li
-                      key={i}
-                      onClick={() => handleCategoryClick(cat)}
-                      className={categorys === cat ? "selected" : ""}
-                    >
-                      {cat}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="right">
-            <div className="sort">
-              <p> Sort :</p>
-              <select
-                name=""
-                className="select"
-                onChange={(e) => handleSortChange(e.target.value)}
-                value={sortOrder}
-              >
-                <option className="opt" value="asc">
-                  lowest to highest
-                </option>
-                <option className="opt" value="desc">
-                  highest to lowest
-                </option>
-              </select>
-            </div>
-            <div className="product">
-              {loading ? (
-                <div
-                  style={{
-                    position: "relative",
-                    left: "50%",
-                    marginTop: "50px",
-                  }}
-                >
-                  <CircularProgress />
+    <>
+      <div className="all-product-page" style={headerStyle}>
+        <div className="all-product">
+          <div className="sub-products">
+            <div className="left">
+              <div className="shop">
+                <div className="main">
+                  <h3>
+                    <GiShop /> Shop by Brand
+                  </h3>
+                  <ul>
+                    {brands.map((brand, i) => (
+                      <li
+                        key={i}
+                        className={brandFilter === brand ? "selected" : ""}
+                        onClick={() => handleBrandClick(brand)}
+                      >
+                        {brand}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ) : (
-                allProductInfo?.map((item, i) => (
-                  <ProductCard item={item} key={i} />
-                ))
-              )}
+              </div>
+              <div className="filter">
+                <div className="main">
+                  <h3>
+                    <MdCategory /> Category
+                  </h3>
+                  <ul>
+                    {categories.map((cat, i) => (
+                      <li
+                        key={i}
+                        onClick={() => handleCategoryClick(cat)}
+                        className={categorys === cat ? "selected" : ""}
+                      >
+                        {cat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="right">
+              <div className="sort">
+                <p> Sort :</p>
+                <select
+                  name=""
+                  className="select"
+                  onChange={(e) => handleSortChange(e.target.value)}
+                  value={sortOrder}
+                >
+                  <option className="opt" value="asc">
+                    lowest to highest
+                  </option>
+                  <option className="opt" value="desc">
+                    highest to lowest
+                  </option>
+                </select>
+              </div>
+              <div className="product">
+                {loading ? (
+                  <div
+                    style={{
+                      position: "relative",
+                      left: "50%",
+                      marginTop: "50px",
+                    }}
+                  >
+                    <CircularProgress />
+                  </div>
+                ) : (
+                  allProductInfo?.map((item, i) => (
+                    <ProductCard item={item} key={i} />
+                  ))
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="pagination">
-          {Array.from({ length: totalPage }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handlePageChange(index + 1)}
-              className={currentPage === index + 1 ? "active" : ""}
-            >
-              {index + 1}
-            </button>
-          ))}
+          <div className="pagination">
+            <Pagination
+              totalPage={totalPage}
+              onClick={handlePageChange}
+              currentPage={currentPage}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

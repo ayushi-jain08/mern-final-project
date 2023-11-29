@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { fetchDeleteReview, fetchGetReview } from "../../Redux/Slices/Product";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import { FaUserCircle } from "react-icons/fa";
 
 const ReviewCard = ({ item, ids }) => {
   const dispatch = useDispatch();
@@ -19,9 +20,14 @@ const ReviewCard = ({ item, ids }) => {
     await dispatch(fetchGetReview(ids));
     toast.warning("Your review is deleted successfully");
   };
+
   return (
     <div className="review-card">
-      <img src="" alt="user img" />
+      {item?.userId?.pic ? (
+        <img src={item.userId.pic.url} alt="user img" />
+      ) : (
+        <FaUserCircle />
+      )}
       <h4>{item.userId.name}</h4>
       <span>posted on {formattedDate}</span>
       <div className="star">{RenderStars(item.rating)}</div>

@@ -12,11 +12,9 @@ const RelatedProduct = ({ product }) => {
         <span></span>
       </div>
       <div className="product" style={{ marginBottom: "50px" }}>
-        <div>
-          {product?.map((item, i) => (
-            <ProductCard item={item} key={i} />
-          ))}
-        </div>
+        {product?.map((item, i) => (
+          <ProductCard item={item} key={i} />
+        ))}
       </div>
     </>
   );

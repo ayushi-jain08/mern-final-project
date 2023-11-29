@@ -31,7 +31,7 @@ const FeaturedProducts = () => {
   const featuredProducts = allProductInfo.filter(
     (product) => product.feature === true
   );
-  console.log("gg", featuredProducts);
+  
   useEffect(() => {
     dispatch(fetchAllProduct({ page: "", sort: "", brand: "", category: "" }));
   }, [dispatch]);

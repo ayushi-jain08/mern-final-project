@@ -1,24 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./About.css";
-import { useLocation, useNavigate } from "react-router-dom";
 
-const About = ({ path = "loginsignup" }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  useEffect(() => {
-    const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
-    if (!storedUserInfo) {
-      navigate(`/${path}`, {
-        state: location.pathname,
-      });
-    }
-  }, [navigate, location.pathname, path]);
- 
-  return (
-    <div className="about" >
-      about
-    </div>
-  );
+const About = () => {
+  return <div className="about">about</div>;
 };
 
 export default About;

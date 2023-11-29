@@ -34,7 +34,7 @@ const FeatureProduct = () => {
             <div
               style={{
                 position: "relative",
-                left: "50%",
+                left: "0%",
                 marginTop: "50px",
               }}
             >

@@ -8,8 +8,8 @@ font-family: 'Roboto', sans-serif; */
   justify-content: space-between;
   align-items: center;
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 5px 10px;
   background-color: white;
   user-select: none;
 }
@@ -41,6 +41,16 @@ font-family: 'Roboto', sans-serif; */
   font-family: "Libre Baskerville", serif;
   font-weight: 600;
 }
+.category-by-product {
+  position: relative;
+  top: 115px;
+}
+.category-by-product .product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
 @media screen and (max-width: 900px) {
   .category {
     flex-direction: column;
@@ -48,5 +58,8 @@ font-family: 'Roboto', sans-serif; */
   .category .category-card {
     width: 100%;
     margin-bottom: 20px;
+  }
+  .category-by-product .product {
+    gap: 2px;
   }
 }

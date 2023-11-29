@@ -55,7 +55,6 @@ font-family: 'Playfair Display', serif; */
 .review-container {
   margin-top: 20px;
   user-select: none;
-  height: 100vh;
 }
 .review-container .overall-ratings {
   text-align: center;
@@ -79,7 +78,7 @@ font-family: 'Playfair Display', serif; */
   height: 2px;
 }
 .review-container .heading h2 {
-  font-size: 28px;
+  font-size: 30px;
   font-family: "Neuton", serif;
   text-transform: uppercase;
 }
@@ -108,14 +107,15 @@ font-family: 'Playfair Display', serif; */
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 2px solid blue;
+
+  object-fit: cover;
 }
 .review-container .all-review .review-card h4 {
   font-family: "Neuton", serif;
   font-size: 20px;
   font-weight: 600;
   text-transform: capitalize;
-  margin-bottom: 0;
+  margin-bottom: 2px;
 }
 .review-container .all-review .review-card span {
   font-size: 13px;
@@ -127,9 +127,10 @@ font-family: 'Playfair Display', serif; */
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-top: 5px;
 }
 .review-container .all-review .review-card .star svg {
-  font-size: 18px !important;
+  font-size: 19px !important;
 }
 .review-container .all-review .review-card p {
   width: 95%;

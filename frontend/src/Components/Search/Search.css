@@ -1,0 +1,35 @@
+.search-product {
+  max-width: 1100px;
+  margin: 0px auto;
+  margin-bottom: 50px;
+  position: relative;
+  top: 115px;
+}
+.search-product .product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.search-product .no-product {
+  background-image: url("../../Images/4905879-removebg-preview.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-product .no-product h2 {
+  font-size: 30px;
+  font-family: sans-serif;
+}
+@media screen and (max-width: 900px) {
+  .search-product {
+    width: 100%;
+    top: 95px;
+  }
+  .search-product .product {
+    gap: 2px;
+  }
+}

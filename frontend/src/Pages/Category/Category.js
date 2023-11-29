@@ -1,31 +1,29 @@
 import React from "react";
 import "./Category.css";
-import women from "../../Images/girl.jpg";
+import womens from "../../Images/girl.jpg";
 import purse from "../../Images/purse.jpg";
 import men from "../../Images/men.jpg";
+import { Link } from "react-router-dom";
 
 const Category = () => {
+  const data = [
+    { imgs: womens, cat: "Women" },
+    { imgs: purse, cat: "Accessories" },
+    { imgs: men, cat: "Men" },
+  ];
   return (
     <>
       <div className="category">
-        <div className="category-card">
-          <img src={women} alt="" />
-          <div className="category-name">
-            <button>Women</button>
+        {data?.map((item, i) => (
+          <div className="category-card" key={i}>
+            <img src={item.imgs} alt="" />
+            <div className="category-name">
+              <Link to={`cat/${item.cat}`}>
+                <button>{item.cat}</button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="category-card">
-          <img src={purse} alt="" />
-          <div className="category-name">
-            <button>Accessories</button>
-          </div>
-        </div>
-        <div className="category-card">
-          <img src={men} alt="" />
-          <div className="category-name">
-            <button>Men</button>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );

@@ -9,6 +9,10 @@ import cors from "cors";
 // import path from "path";
 import user from "./Routes/User.js";
 import review from "./Routes/Review.js";
+import subcategory from "./Routes/SubCategory.js";
+import category from "./Routes/Category.js";
+import payment from "./Routes/Payment.js";
+import order from "./Routes/Order.js";
 
 connectDB();
 // const __dirname = path.resolve();
@@ -24,6 +28,10 @@ app.use(
 app.use("/api/product", product);
 app.use("/api/user", user);
 app.use("/api", review);
+app.use("/api/subcategory", subcategory);
+app.use("/api/category", category);
+app.use("/api", payment);
+app.use("/api/order", order);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

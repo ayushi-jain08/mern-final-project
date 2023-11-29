@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.shipping-cont {
+  max-width: 900px;
+  margin: 15px auto;
+  position: relative;
+  top: 110px;
+}
+.shipping-cont .shipping-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.shipping-cont .shipping-box .shippingHeading {
+  font-size: 25px;
+  font-weight: 400;
+  color: rgb(101, 95, 95);
+  text-transform: uppercase;
+  word-spacing: 2px;
+  padding: 7px 0px;
+  border-bottom: 1px solid rgb(188, 188, 188);
+  margin-top: 15px;
+  text-align: center;
+  font-family: "Neuton", serif;
+}
+
+.shipping-cont .shipping-box .form {
+  width: 45%;
+}
+.shipping-cont .shipping-box .form-control {
+  max-width: 90%;
+  border: 1px solid black;
+  padding: 7px 10px;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-sizing: border-box;
+  background: white;
+}
+.shipping-cont .shipping-box .form-control input {
+  border: none;
+  outline: none;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px;
+  border-radius: 5px;
+}
+.shipping-cont .shipping-box .form-control select {
+  border: none;
+  outline: none;
+  width: 90%;
+}
+.shipping-cont .shipping-box .form .shipping-btn {
+  padding: 7px;
+  box-sizing: border-box;
+  background: orangered;
+  color: white;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  border-radius: 0px;
+  width: 90%;
+  margin: 15px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+.shipping-cont .shipping-box .form .shipping-btn:active {
+  transform: scale(1.077);
+  background: rgb(248, 116, 68);
+}
+@media screen and (max-width: 900px) {
+  .shipping-cont {
+    max-width: 99%;
+  }
+  .shipping-cont .shipping-box .shippingHeading {
+    font-size: 20px;
+  }
+  .shipping-cont .shipping-box .form {
+    width: 90%;
+  }
+}

@@ -5,30 +5,35 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif; */
 .home {
   position: relative;
-  top: 105px;
+  top: 115px;
 }
-.banner {
-  background-color: rgb(231, 229, 229);
+.slider-banner {
+  background-color: rgb(245, 245, 245);
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   user-select: none;
 }
-.banner .left {
+.slider-banner .carousel {
+  width: 100%;
+  height: 100%;
+}
+.slider-banner .left {
   padding: 5px 10px;
 }
-.banner .left span {
-  font-size: 60px;
+.slider-banner .left span {
+  font-size: 70px;
+
   font-weight: 600;
   font-family: "Libre Baskerville", serif;
 }
-.banner .left p {
+.slider-banner .left p {
   font-size: 50px;
   font-family: "Libre Baskerville", serif;
   color: red;
 }
-.banner .left .shop-now {
+.slider-banner .left .shop-now {
   padding: 6px 15px;
   outline: none;
   border: none;
@@ -36,45 +41,47 @@ font-family: 'Roboto', sans-serif; */
   color: white;
   border-radius: 5px;
 }
-.banner .right {
+.slider-banner .right {
   height: 100%;
   width: 600px;
   box-sizing: border-box;
 }
-.banner .right img {
+.slider-banner .right img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 @media screen and (max-width: 900px) {
-  .banner {
+  .slider-banner {
+    margin-top: 0;
     padding: 0 3px;
     height: 250px;
   }
-  .banner .left span {
-    font-size: 24px;
-
+  .slider-banner .left span {
+    font-size: 25px;
     font-weight: 700;
   }
-  .banner .left {
+  .slider-banner .left {
     padding: 5px;
+
+    width: 200px;
   }
-  .banner .left p {
-    font-size: 22px;
+  .slider-banner .left p {
+    font-size: 18px;
   }
-  .banner .right {
-    width: 220px;
+  .slider-banner .right {
+    width: 200px;
     box-sizing: border-box;
     height: 100%;
     text-align: center;
   }
-  .banner .right img {
+  .slider-banner .right img {
     text-align: center;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .banner .left .shop-now {
+  .slider-banner .left .shop-now {
     padding: 5px 10px;
     font-size: 15px;
   }

@@ -1,6 +1,5 @@
 // models/Subcategory.js
-const mongoose = require("mongoose");
-
+import mongoose from "mongoose";
 const subcategorySchema = new mongoose.Schema({
   name: String,
   image: {
@@ -9,4 +8,4 @@ const subcategorySchema = new mongoose.Schema({
   }, // URL to the subcategory image
 });
 
-module.exports = mongoose.model("subcategories", subcategorySchema);
+export const subCategory = mongoose.model("subcategories", subcategorySchema);

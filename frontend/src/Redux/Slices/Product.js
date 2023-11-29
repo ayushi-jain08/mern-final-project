@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const HOST = "https://mern-final-foyk.onrender.com";
+// const HOST = "https://mern-final-foyk.onrender.com";
 
-// const HOST = "http://localhost:8080";
+const HOST = "http://localhost:8080";
 // ==================CATEGORY WISE PRODUCTS=========================
 export const fetchCategory = createAsyncThunk(
   "data/fetchRegister",
@@ -294,6 +294,323 @@ export const RemoveCartProduct = createAsyncThunk(
   }
 );
 
+// ===========================DELETE PRODUCTS FROM CART=====================
+export const DeleteWholeCart = createAsyncThunk(
+  "data/DeleteWholeCart",
+  async () => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/product/deletewholecart`, {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+// ========================ADD TO WISHLIST===================
+export const AddToWishList = createAsyncThunk(
+  "data/AddToWishList",
+  async (productId) => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/product/addtowishlist`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+        body: JSON.stringify({ productId }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An  while processing your request.");
+    }
+  }
+);
+// /  ========================GET WISHLIST PRODUCT======================
+export const fetchWishListItem = createAsyncThunk(
+  "data/fetchWishListItem",
+  async () => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/product/getwishlist`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+// ==========================GET CATEGORIES=========================
+export const fetchGetCategory = createAsyncThunk(
+  "data/fetchGetCategory",
+  async () => {
+    try {
+      const response = await fetch(`${HOST}/api/category/get`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+
+// ====================GET SUBCATEGORY======================
+export const fetchSubCategory = createAsyncThunk(
+  "data/fetchSubCategory ",
+  async (categoryId) => {
+    try {
+      const response = await fetch(`${HOST}/api/category/${categoryId}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+
+// =================GET SUBCATEGORY PRODUCT=====================
+export const fetchSucategoryProduct = createAsyncThunk(
+  "data/fetchSucategoryProduct",
+  async ({ page, subcategoryID }) => {
+    try {
+      const response = await fetch(
+        `${HOST}/api/subcategory/${subcategoryID}?page=${page}`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        return {
+          subcategoryproduct: data.products,
+          SubtotalPages: data.totalPages,
+          totalsubproduct: data.totalProducts,
+        };
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+//=====================GET ALL SUBCATEGORY=====================//
+export const fetchAllSubCategory = createAsyncThunk(
+  "data/fetchAllSubCategory ",
+  async () => {
+    try {
+      const response = await fetch(`${HOST}/api/subcategory/get`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+// =================CREATE ORDER=================================
+export const CreateOrder = createAsyncThunk(
+  "data/CreateOrder",
+  async ({
+    shippingInfo,
+    orderItems,
+    paymentInfo,
+    itemsPrice,
+    taxPrice,
+    shippingPrice,
+    totalPrice,
+  }) => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/order/create`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+        body: JSON.stringify({
+          shippingInfo,
+          orderItems,
+          paymentInfo,
+          itemsPrice,
+          taxPrice,
+          shippingPrice,
+          totalPrice,
+        }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An  while processing your request.");
+    }
+  }
+);
+export const FetchAllOrders = createAsyncThunk(
+  "data/FetchAllOrders",
+  async () => {
+    const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+    try {
+      const response = await fetch(`${HOST}/api/order/get`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+// =======================GET SINGLE ORDER=======================
+export const GetSingleOrder = createAsyncThunk(
+  "data/GetSingleOrder",
+  async (id) => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/order/get/${id}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
+// ====================FETCH SEARCH PRODUCT====================
+export const FetchSearchProduct = createAsyncThunk(
+  "data/FetchSearchProduct",
+  async (searchTermUrl) => {
+    try {
+      const response = await fetch(
+        `${HOST}/api/product/search?searchTerm=${searchTermUrl}`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json", // Fix the header syntax
+          },
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+);
+// =======================GET SINGLE ORDER=======================
+export const FetchProductByCategory = createAsyncThunk(
+  "data/FetchProductByCategory",
+  async (category) => {
+    try {
+      const response = await fetch(`${HOST}/api/product/${category}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data;
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
 const initialState = {
   categoryProduct: [],
   allProductInfo: [],
@@ -303,6 +620,17 @@ const initialState = {
   cartProductInfo: [],
   allReview: [],
   relatedProduct: [],
+  wishListProductInfo: [],
+  mainCategory: [],
+  SubCategory: [],
+  SubCategoryProduct: [],
+  allSubcategory: [],
+  allOrders: [],
+  SingleOrder: [],
+  SearchProduct: [],
+  ProductByCategory: [],
+  totalSubProducts: 0,
+  SubtotalPage: 0,
   loading: false,
   error: null,
 };
@@ -415,6 +743,140 @@ const ProductSlice = createSlice({
       .addCase(fetchCartProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(AddToWishList.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(AddToWishList.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(AddToWishList.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchWishListItem.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchWishListItem.fulfilled, (state, action) => {
+        state.loading = false;
+        state.wishListProductInfo = action.payload;
+      })
+      .addCase(fetchWishListItem.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchGetCategory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchGetCategory.fulfilled, (state, action) => {
+        state.loading = false;
+        state.mainCategory = action.payload; // Update the state with fetched categories
+      })
+      .addCase(fetchGetCategory.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchSubCategory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSubCategory.fulfilled, (state, action) => {
+        state.loading = false;
+        state.SubCategory = action.payload; // Update the state with fetched categories
+      })
+      .addCase(fetchSubCategory.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchSucategoryProduct.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSucategoryProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.SubCategoryProduct = action.payload.subcategoryproduct; // Update the state with fetched categories
+        state.SubtotalPage = action.payload.SubtotalPages;
+        state.totalSubProducts = action.payload.totalsubproduct;
+      })
+      .addCase(fetchSucategoryProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+
+      .addCase(fetchAllSubCategory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchAllSubCategory.fulfilled, (state, action) => {
+        state.loading = false;
+        state.allSubcategory = action.payload; // Update the state with fetched categories
+      })
+      .addCase(fetchAllSubCategory.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(CreateOrder.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(CreateOrder.fulfilled, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(CreateOrder.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(FetchAllOrders.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(FetchAllOrders.fulfilled, (state, action) => {
+        state.loading = false;
+        state.allOrders = action.payload;
+      })
+      .addCase(FetchAllOrders.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message; // Update the state with fetched categories
+      })
+      .addCase(GetSingleOrder.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(GetSingleOrder.fulfilled, (state, action) => {
+        state.loading = false;
+        state.SingleOrder = action.payload;
+      })
+      .addCase(GetSingleOrder.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message; // Update the state with fetched categories
+      })
+      .addCase(FetchSearchProduct.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(FetchSearchProduct.fulfilled, (state, action) => {
+        state.SearchProduct = action.payload;
+        state.loading = false;
+      })
+      .addCase(FetchSearchProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message; // Update the state with fetched categories
+      })
+      .addCase(FetchProductByCategory.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(FetchProductByCategory.fulfilled, (state, action) => {
+        state.ProductByCategory = action.payload;
+        state.loading = false;
+      })
+      .addCase(FetchProductByCategory.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message; // Update the state with fetched categories
       });
   },
 });

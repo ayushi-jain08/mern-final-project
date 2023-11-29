@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.wishlist-container {
+  width: 100%;
+
+  position: relative;
+  top: 105px;
+}
+.wishlist-container .wishlist-banner {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.wishlist-container .wishlist-banner .img {
+  width: 100%;
+  height: 280px;
+  position: relative;
+}
+.wishlist-container .wishlist-banner .img::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(71, 71, 120, 0.3);
+}
+.wishlist-container .wishlist-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wishlist-container .wishlist-banner h1 {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 60px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: "Neuton", serif;
+}
+.wishlist-container .wishlist-main {
+  max-width: 1000px;
+  margin: 10px auto;
+}
+.wishlist-container .wishlist-header {
+  display: flex;
+  align-items: flex-end;
+  padding: 0px 10px;
+  height: 40px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 5px;
+  box-shadow: rgba(17, 17, 26, 0) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  justify-content: space-between;
+  text-transform: capitalize;
+  color: black;
+  border-radius: 5px;
+}
+.wishlist-container .wishlist-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(94, 89, 89);
+}
+.wishlist-main .content {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 5px;
+  box-shadow: rgba(17, 17, 26, 0) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+.wishlist-main .content .wishlist-product {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.wishlist-main .content .wishlist-product .details p {
+  font-size: 14px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: rgb(129, 126, 126);
+}
+.wishlist-main .content .wishlist-product,
+.wishlist-header .wishlist-product {
+  flex: 0.4;
+  text-align: left;
+}
+.wishlist-main .content .price,
+.wishlist-header .price {
+  flex: 0.2;
+  text-align: center;
+  font-family: "Neuton", serif;
+}
+.wishlist-main .content .qty,
+.wishlist-header .total {
+  flex: 0.2;
+  text-align: center;
+  font-family: "Neuton", serif;
+}
+.wishlist-main,
+.content .total,
+.wishlist-header .delete {
+  flex: 0.1;
+  text-align: center;
+}
+.wishlist-main .content .add-btn {
+  width: 100px;
+  padding: 5px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: orangered;
+  color: white;
+  font-family: "Neuton", serif;
+  transition: all 0.3s ease-in-out;
+}
+.wishlist-main .content .add-btn:active {
+  background: white;
+  border: 1px solid black;
+  color: orangered;
+  transform: scale(1.1);
+}
+.wishlist-main .content .remove-btn {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+.wishlist-main .content .remove-btn .del {
+  color: red;
+  font-size: 25px;
+}
+.wishlist-main .content .remove-btn .del:active {
+  transform: scale(1.1);
+}
+.wishlist-container .empty-wishlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background-color: white;
+}
+.wishlist-container .empty-wishlist span svg {
+  font-size: 80px;
+  color: orangered;
+}
+.wishlist-container .empty-wishlist p {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Neuton", serif;
+}
+.wishlist-container .empty-wishlist button {
+  border: 1px solid transparent;
+  outline: none;
+  background: rgb(2, 2, 50);
+  font-size: 17px;
+  font-family: "Neuton", serif;
+  padding: 8px 25px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.wishlist-container .empty-wishlist button:active {
+  border: 1px solid black;
+  background: white;
+  color: black;
+}
+@media screen and (max-width: 900px) {
+  .wishlist-container .wishlist-banner {
+    height: 250px;
+  }
+  .wishlist-container .wishlist-banner .img {
+    height: 220px;
+  }
+  .wishlist-container .wishlist-banner h1 {
+    font-size: 35px;
+    top: 35%;
+  }
+  .wishlist-container .wishlist-header {
+    padding: 0 8px;
+    height: 35px;
+  }
+  .wishlist-container .wishlist-header h2 {
+    font-size: 13px;
+  }
+  .wishlist-main .content {
+    padding: 8px;
+  }
+
+  .wishlist-main .content .wishlist-product {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .wishlist-main .content .product .details {
+    text-align: left;
+  }
+  .wishlist-main .content .add-btn {
+    width: 60px;
+    font-size: 8px;
+    padding: 2px;
+    border-radius: 5px;
+  }
+  .wishlist-main .content .qty,
+  .wishlist-header .total {
+    flex: 0.3;
+  }
+  .wishlist-container .empty-wishlist span svg {
+    font-size: 45px;
+  }
+  .wishlist-container .empty-wishlist p {
+    font-size: 18px;
+  }
+  .wishlist-container .empty-wishlist button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}

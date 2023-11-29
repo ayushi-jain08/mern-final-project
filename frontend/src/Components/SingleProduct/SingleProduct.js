@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SingleProduct.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
 import { useDispatch, useSelector } from "react-redux";
 import Accordions from "./Accordions";
@@ -8,6 +8,7 @@ import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 import RenderStars from "../Function/RenderStars";
 import {
   AddToCart,
+  AddToWishList,
   fetchCartProduct,
   fetchGetReview,
   fetchRelatedProduct,
@@ -19,11 +20,15 @@ import Review from "../Review/Review";
 import RelatedProduct from "../RelatedProduct/RelatedProduct";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaHeart } from "react-icons/fa";
+import { fetchUserData } from "../../Redux/Slices/User";
 
 const SingleProduct = () => {
+  const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
   const { ids } = useParams();
+
   const productInfo = useSelector((state) => state.product);
   const { singleProduct, loading, allReview, relatedProduct } = productInfo;
   const {
@@ -41,7 +46,8 @@ const SingleProduct = () => {
   } = singleProduct;
   const [scrollPosition, setScrollPosition] = useState(0);
   const users = useSelector((state) => state.user);
-  const { currentUser } = users;
+  const { currentUser, UserAllDetails } = users;
+  const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
   // ====================SCROLL POSITION====================
 
   useEffect(() => {
@@ -52,10 +58,16 @@ const SingleProduct = () => {
         await dispatch(fetchRelatedProduct(ids));
       }
     };
-
     fetchData();
   }, [ids, dispatch]);
-  console.log("alll", allReview);
+
+  useEffect(() => {
+    if (storedUserInfo || currentUser) {
+      dispatch(fetchUserData());
+    }
+    // eslint-disable-next-line
+  }, [dispatch]);
+
   const increment = () => {
     setCount((prevCount) => prevCount + 1);
   };
@@ -66,7 +78,6 @@ const SingleProduct = () => {
   };
 
   const handleAddToCart = async () => {
-    const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
     if (!currentUser || !storedUserInfo) {
       toast.warning("Please log in to add items to your cart.");
       return;
@@ -75,7 +86,16 @@ const SingleProduct = () => {
     await dispatch(fetchCartProduct());
     toast.success("Item successfully added to cart");
   };
-  const handleCheckOut = () => {};
+
+  const handleWishList = async (productId) => {
+    if (!storedUserInfo) {
+      toast.warning("Please log in to add items to your wishlist.");
+      return;
+    }
+    await dispatch(AddToWishList(productId));
+    await dispatch(fetchUserData());
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY;
@@ -88,10 +108,24 @@ const SingleProduct = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const wishlistProductIds = UserAllDetails?.wishlist?.map(
+    (wishlistItem) => wishlistItem.product
+  );
+  const isAddedToWishlist = wishlistProductIds?.includes(_id);
   const headerStyle = {
     backgroundColor:
       scrollPosition > 100 ? "rgb(241, 240, 240)" : "rgb(241, 240, 240)",
     transition: "background-color 0.3s ease",
+  };
+  const handleCheckOut = () => {
+    const productData = {
+      product: singleProduct,
+      quantity: count,
+      subtotal: count * singleProduct.cost,
+    };
+    const productArray = [productData];
+    sessionStorage.setItem("orderProduct", JSON.stringify(productArray));
+    navigate("/shipping");
   };
   return (
     <>
@@ -195,19 +229,19 @@ const SingleProduct = () => {
                     </div>
                   </div>
                   <div className="lower-content">
-                    {/* <span className="heart" onClick={() => handleWishList(_id)}>
-      {addWishlist.includes(_id) ? (
-        <>
-          <FaHeart className="red" />
-          <p>Remove from wishlist</p>
-        </>
-      ) : (
-        <>
-          <FaHeart className="white" />
-          <p>Add to wishlist</p>
-        </>
-      )}
-    </span> */}
+                    <span className="heart" onClick={() => handleWishList(_id)}>
+                      {isAddedToWishlist ? (
+                        <>
+                          <FaHeart className="red" />
+                          <p>Remove from wishlist</p>
+                        </>
+                      ) : (
+                        <>
+                          <FaHeart className="white" />
+                          <p>Add to wishlist</p>
+                        </>
+                      )}
+                    </span>
                     <div className="two-btn">
                       <button className="add" onClick={handleAddToCart}>
                         Add To Cart

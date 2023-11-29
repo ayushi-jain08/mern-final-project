@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const HOST = "https://mern-final-foyk.onrender.com";
+// const HOST = "https://mern-final-foyk.onrender.com";
+const HOST = "http://localhost:8080";
 //====================REGISTER USER=======================//
 export const fetchRegister = createAsyncThunk(
   "data/fetchRegister",
@@ -59,6 +60,83 @@ export const fetchLogout = createAsyncThunk("data/fetchLogout", async () => {
   localStorage.removeItem("userDataInfo");
   return null;
 });
+// =======================USER DATA=========================
+export const fetchUserData = createAsyncThunk(
+  "data/fetchUserData",
+  async () => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/user/abouts`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data; // This data will be passed to the fulfilled action
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while fetching user profile.");
+    }
+  }
+);
+// =======================USER DATA=========================
+export const AddUserShippingAddress = createAsyncThunk(
+  "data/AddUserShippingAddress",
+  async ({ street, city, state, country, pinCode, phone }) => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/user/shipping`, {
+        method: "PATCH",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+        body: JSON.stringify({ street, city, state, country, pinCode, phone }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data; // This data will be passed to the fulfilled action
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while fetching user profile.");
+    }
+  }
+);
+// ==========================CONTACT US FORM=============================
+export const FetchContactUs = createAsyncThunk(
+  "data/FetchContactUs",
+  async ({ name, email, message, userId }) => {
+    try {
+      const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
+      const response = await fetch(`${HOST}/api/user/contact`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+        body: JSON.stringify({ name, email, message, userId }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data.message; // This data will be passed to the fulfilled action
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      throw new Error("An error occurred while processing your request.");
+    }
+  }
+);
 const infoStorage = () => {
   const StorageUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
   if (StorageUserInfo) {
@@ -68,6 +146,7 @@ const infoStorage = () => {
 };
 const initialState = {
   currentUser: infoStorage() || {},
+  UserAllDetails: {},
   message: "",
   loading: false,
   error: null,
@@ -121,6 +200,20 @@ const UserSlice = createSlice({
       .addCase(fetchLogout.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(fetchUserData.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(fetchUserData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.UserAllDetails = action.payload;
+        state.loggedIn = true;
+      })
+      .addCase(fetchUserData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+        state.loggedIn = false;
       });
   },
 });

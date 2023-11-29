@@ -41,9 +41,6 @@ export const PostReview = async (req, res) => {
     product.ratings = (avg / productReviews.length).toFixed(1);
     await product.save();
 
-    console.log(product.ratings);
-    console.log(product);
-
     res.status(200).json({ message: "Review created successfully" });
   } catch (error) {
     console.error(error);
