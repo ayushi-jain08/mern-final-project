@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // const HOST = "https://mern-final-foyk.onrender.com";
-const HOST = "http://localhost:8080";
+const HOST = "https://mern-final-u6mi.onrender.com";
 //====================REGISTER USER=======================//
 export const fetchRegister = createAsyncThunk(
   "data/fetchRegister",
