@@ -9,9 +9,9 @@ const FeatureProduct = () => {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.product);
   const { allProductInfo, loading, error } = productDetail;
-  const featuredProducts = allProductInfo.filter(
-    (product) => product.feature === true
-  );
+  const featuredProducts = allProductInfo
+    .filter((product) => product.feature === true)
+    .slice(0, 4); // Limit the array to the first four elements
 
   useEffect(() => {
     dispatch(fetchAllProduct({ page: "", sort: "", brand: "", category: "" }));
@@ -34,7 +34,7 @@ const FeatureProduct = () => {
             <div
               style={{
                 position: "relative",
-                left: "0%",
+                left: "50%",
                 marginTop: "50px",
               }}
             >

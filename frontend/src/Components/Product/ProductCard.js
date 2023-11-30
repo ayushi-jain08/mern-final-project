@@ -41,7 +41,7 @@ const ProductCard = ({ item }) => {
         <div className="details">
           <span className="head">{item.name}</span>
           <NavLink to={`/product/${item._id}`}>
-            <p className="desc">{item.desc.slice(0, 65)}...</p>
+            <p className="desc">{item.desc.slice(0, 60)}...</p>
           </NavLink>
           <div className="stars">{RenderStars(item.ratings)}</div>
           <p className="price">

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // const HOST = "https://mern-final-foyk.onrender.com";
 
-const HOST = "https://mern-final-u6mi.onrender.com";
+const HOST = "http://localhost:8080";
 // ==================CATEGORY WISE PRODUCTS=========================
 export const fetchCategory = createAsyncThunk(
   "data/fetchRegister",
@@ -638,7 +638,11 @@ const initialState = {
 const ProductSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {},
+  reducers: {
+    clearSubCategoryProduct: (state) => {
+      state.SubCategoryProduct = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCategory.pending, (state) => {
@@ -880,5 +884,5 @@ const ProductSlice = createSlice({
       });
   },
 });
-
+export const { clearSubCategoryProduct } = ProductSlice.actions;
 export default ProductSlice.reducer;

@@ -5,11 +5,10 @@
   top: 100px;
 }
 
-.related-product .products {
+.related-product .product {
   display: flex;
-  gap: 18px;
   margin-top: 20px;
-  flex-wrap: wrap;
+  padding: 15px 0;
 }
 .related-product .heading {
   justify-content: center;
@@ -30,7 +29,10 @@
 }
 @media screen and (max-width: 900px) {
   .related-product {
-    width: 100%;
+    max-width: 98%;
+  }
+  .related-product .product {
+    gap: 5px;
   }
   .related-product .heading {
     gap: 5px;

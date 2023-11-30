@@ -299,7 +299,7 @@ font-family: 'Roboto', sans-serif; */
     margin-top: 2px;
   }
   .all-product-page .all-product .sub-products {
-    width: 100%;
+    max-width: 99%;
     flex-direction: column;
     padding: 0;
   }
@@ -355,7 +355,7 @@ font-family: 'Roboto', sans-serif; */
     gap: 2px;
   }
   .product .product-card {
-    width: 149px;
+    width: 150px;
     height: 280px;
     margin-bottom: 10px;
   }

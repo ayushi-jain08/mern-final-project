@@ -11,6 +11,7 @@ import img1 from "../../Images/makeup.jpg";
 import { MdDelete } from "react-icons/md";
 import EmptyWishlist from "./EmptyWishlist";
 import CircularProgress from "@mui/material/CircularProgress";
+import { fetchUserData } from "../../Redux/Slices/User";
 
 const Wishlist = ({ path = "loginsignup" }) => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const Wishlist = ({ path = "loginsignup" }) => {
 
   const handleAddToCart = async (productId, quantity) => {
     await dispatch(AddToCart({ productId, quantity }));
+    await dispatch(fetchUserData());
   };
   const handleRemove = async (productId) => {
     await dispatch(AddToWishList(productId));

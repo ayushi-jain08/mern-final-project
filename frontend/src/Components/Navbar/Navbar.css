@@ -30,12 +30,24 @@ font-family: 'Roboto', sans-serif; */
   height: 45px;
   object-fit: cover;
 }
-.navbar .center-list,
+.navbar .center-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 120px;
+}
+.navbar .center-list .left-list {
+  display: flex;
+  align-items: center;
+}
+.navbar .center-list .left-list li {
+  padding: 5px 7px;
+  box-sizing: border-box;
+}
 .right-list {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 20px;
 }
 .navbar .center-list li {
   list-style: none;
@@ -57,25 +69,24 @@ font-family: 'Roboto', sans-serif; */
 }
 .navbar .right-list li {
   list-style: none;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   box-sizing: border-box;
   transition: all 0.3s ease-in;
-  background-color: rgb(235, 233, 233);
+  padding: 0 7px;
+  /* background-color: rgb(235, 233, 233); */
 }
-.navbar .right-list li:active {
-  background-color: rgb(205, 225, 243);
+.navbar .right-list li:active svg {
+  transform: scale(1.2);
 }
 .navbar .right-list li svg {
-  font-size: 20px;
+  font-size: 22px;
   color: rgb(14, 14, 64);
 }
 .navbar .menu svg {
-  font-size: 20px;
+  font-size: 22px;
   display: none;
 }
 @media screen and (max-width: 900px) {
@@ -94,7 +105,7 @@ font-family: 'Roboto', sans-serif; */
   .navbar .menu svg {
     text-align: center;
     display: block;
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 20px;
   }
   .navbar .center-list {
@@ -108,20 +119,25 @@ font-family: 'Roboto', sans-serif; */
     height: 100vh;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    width: 50%;
+    width: 70%;
     flex-direction: column;
-    align-items: center;
     padding: 20px 0;
+    justify-content: start;
     transition: all 0.5s linear;
     z-index: 99;
+    gap: 0;
+  }
+  .navbar .center-list .left-list {
+    display: block;
+    text-align: center;
   }
   .navbar .left {
     left: -20px;
   }
-  .navbar .center-list li {
-    padding: 15px 0;
+  .navbar .center-list .left-list li {
+    padding: 17px 0px;
   }
-  .navbar .center-list li a {
+  .navbar .center-list .left-list li a {
     color: white;
     font-size: 12px;
   }
@@ -129,10 +145,12 @@ font-family: 'Roboto', sans-serif; */
     background-color: black;
   }
   .navbar .right-list li {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
+    padding: 0;
   }
   .navbar .right-list li svg {
-    font-size: 15px;
+    font-size: 18px;
+    color: white;
   }
 }

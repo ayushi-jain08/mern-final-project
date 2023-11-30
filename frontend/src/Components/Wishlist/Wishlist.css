@@ -175,6 +175,10 @@ font-family: 'Playfair Display', serif; */
   background: white;
   color: black;
 }
+
+.wishlist-main .content .remove-btn .del {
+  font-size: 18px;
+}
 @media screen and (max-width: 900px) {
   .wishlist-container .wishlist-banner {
     height: 250px;
@@ -191,10 +195,10 @@ font-family: 'Playfair Display', serif; */
     height: 35px;
   }
   .wishlist-container .wishlist-header h2 {
-    font-size: 13px;
+    font-size: 11px;
   }
   .wishlist-main .content {
-    padding: 8px;
+    padding: 3px;
   }
 
   .wishlist-main .content .wishlist-product {
@@ -205,9 +209,12 @@ font-family: 'Playfair Display', serif; */
   .wishlist-main .content .product .details {
     text-align: left;
   }
+  .wishlist-main .content .wishlist-product .details p {
+    font-size: 10px;
+  }
   .wishlist-main .content .add-btn {
-    width: 60px;
-    font-size: 8px;
+    width: 50px;
+    font-size: 7px;
     padding: 2px;
     border-radius: 5px;
   }

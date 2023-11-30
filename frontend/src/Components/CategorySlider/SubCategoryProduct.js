@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchSucategoryProduct } from "../../Redux/Slices/Product";
+import {
+  clearSubCategoryProduct,
+  fetchSucategoryProduct,
+} from "../../Redux/Slices/Product";
 import ProductCard from "../Product/ProductCard";
 import "./CategorySlider.css";
 import Pagination from "../Function/Pagination";
@@ -15,6 +18,7 @@ const SubCategoryProduct = () => {
   const { SubCategoryProduct, SubtotalPage, totalSubProducts, loading } =
     products;
   useEffect(() => {
+    dispatch(clearSubCategoryProduct());
     dispatch(
       fetchSucategoryProduct({ page: currentPage, subcategoryID: subId })
     );

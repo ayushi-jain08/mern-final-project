@@ -12,6 +12,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import EmptyCart from "./EmptyCart";
+import { fetchUserData } from "../../Redux/Slices/User";
 
 const Cart = ({ path = "loginsignup" }) => {
   const location = useLocation();
@@ -30,6 +31,7 @@ const Cart = ({ path = "loginsignup" }) => {
   const handleDelete = async (productId) => {
     await dispatch(RemoveCartProduct(productId));
     await dispatch(fetchCartProduct());
+    await dispatch(fetchUserData());
   };
 
   //======================FETCH CART PRODUCT==================//
@@ -50,6 +52,7 @@ const Cart = ({ path = "loginsignup" }) => {
   const handleWholeCartDelete = async () => {
     await dispatch(DeleteWholeCart());
     await dispatch(fetchCartProduct());
+    await dispatch(fetchUserData());
   };
   //========================SUBTOTAL====================//
   const totalSubtotal = cartProductInfo.reduce((accumulator, cartItem) => {

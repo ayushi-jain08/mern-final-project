@@ -15,6 +15,7 @@
   width: 100%;
   height: 400px;
   border-radius: 10px;
+  object-fit: cover;
 }
 .banner-container .right .upper,
 .banner-container .right .lower {
@@ -39,30 +40,30 @@
 }
 @media screen and (max-width: 900px) {
   .banner-container {
-    max-width: 98%;
+    max-width: 99%;
     margin: 0 auto;
   }
   .banner-container .banner-left {
     gap: 3px;
   }
   .banner-container .banner-left .left {
-    width: 95%;
-    height: 200px;
+    width: 100%;
+    height: 250px;
   }
   .banner-container .banner-left .carousel img {
     width: 100%;
-    height: 200px;
+    height: 250px;
   }
   .banner-container .right .upper,
   .banner-container .right .lower {
     width: 98%;
-    height: 100px;
+    height: 125px;
     gap: 3px;
     margin-top: 3px;
   }
   .banner-container .upper .img,
   .banner-container .lower .img {
     width: 100%;
-    height: 100px;
+    height: 125px;
   }
 }

@@ -53,7 +53,7 @@ export const GetSingleSubcategory = async (req, res) => {
       subcategory: subcategoryID,
     });
     const totalPages = Math.ceil(totalProducts / perpage);
-  
+
     if (!products || products.length === 0) {
       return res
         .status(404)
@@ -62,7 +62,7 @@ export const GetSingleSubcategory = async (req, res) => {
     res.status(200).json({
       products,
       totalPages,
-      totalProducts
+      totalProducts,
     });
   } catch (error) {
     console.error(error);

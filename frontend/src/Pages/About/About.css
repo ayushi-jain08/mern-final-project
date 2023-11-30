@@ -1,4 +1,76 @@
-.about {
+@import url("https://fonts.googleapis.com/css2?family=Neuton&family=Playfair+Display&display=swap");
+
+/* font-family: 'Neuton', serif;
+font-family: 'Playfair Display', serif; */
+.about-co {
+  background-attachment: fixed;
   position: relative;
-  top: 105px;
+  top: 110px;
+}
+.about-co-details {
+  position: relative;
+  width: 100vw;
+}
+.about-co-details img {
+  height: 80vh;
+  width: 100vw;
+}
+.about-co-details .content {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  /* transform: translate(-50%,-50%); */
+  width: 45vw;
+  height: 25vh;
+  color: white;
+  backdrop-filter: blur(16px) saturate(161%);
+  -webkit-backdrop-filter: blur(16px) saturate(161%);
+  background-color: rgba(17, 25, 40, 0.43);
+  border-radius: 1px;
+  border: 5px solid transparent;
+  animation: moveby 2s infinite;
+  text-align: center;
+}
+.about-co-details .content h3 {
+  margin-top: 6px;
+  font-size: 3.7vw;
+  letter-spacing: 1px;
+  word-wrap: 2px;
+  color: white;
+  text-transform: capitalize;
+  font-family: serif;
+  font-family: "Neuton", serif;
+}
+.about-co-details .content p {
+  margin-top: 10px;
+  font-size: 1.5vw;
+  padding: 0 15px;
+  text-align: center;
+  font-family: "Neuton", serif;
+}
+@keyframes moveby {
+  10% {
+    border-left: 3px solid rgba(0, 255, 172, 1);
+    transform: translateY(10px);
+  }
+  30% {
+    border-top: 3px solid rgba(0, 255, 172, 1);
+    transform: translateY(-25px);
+  }
+  60% {
+    border-right: 3px solid rgba(0, 255, 172, 1);
+  }
+  100% {
+    border-bottom: 3px solid rgba(0, 255, 172, 1);
+  }
+}
+@media screen and (max-width: 900px) {
+  .about-co-details img {
+    height: 50vh;
+  }
+  .about-co-details .content {
+    width: 55vw;
+    height: 10vh;
+    left: 25%;
+  }
 }

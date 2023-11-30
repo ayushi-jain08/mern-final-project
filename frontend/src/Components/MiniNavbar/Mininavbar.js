@@ -6,7 +6,7 @@ import { MdPerson } from "react-icons/md";
 import { FaBoxOpen } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { FiLogOut } from "react-icons/fi";
-import { fetchLogout, fetchUserData } from "../../Redux/Slices/User";
+import { fetchLogout } from "../../Redux/Slices/User";
 import { MdCategory } from "react-icons/md";
 import CategorySlider from "../CategorySlider/CategorySlider";
 import { FetchSearchProduct } from "../../Redux/Slices/Product";
@@ -38,7 +38,6 @@ const Mininavbar = () => {
   }, [dispatch, window.location.search]);
   const handleLogOut = async () => {
     await dispatch(fetchLogout());
-    await dispatch(fetchUserData());
     localStorage.removeItem("userDataInfo");
   };
 
@@ -76,7 +75,7 @@ const Mininavbar = () => {
               <CategorySlider setShowCategory={setShowCategory} />
             )}
             {currentUser && storedUserInfo ? (
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown ">
                 <Link
                   className="nav-link dropdown-toggle"
                   role="button"

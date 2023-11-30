@@ -98,7 +98,7 @@ export const UpdateProduct = async (req, res) => {
 export const GetAllProduct = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const perpage = 3;
+    const perpage = 8;
 
     const startIndex = (page - 1) * perpage;
 
@@ -144,13 +144,13 @@ export const GetAllProduct = async (req, res) => {
 //=======================GET PRODUCT BY CATEGORY===================
 export const GetProductByCategory = async (req, res) => {
   try {
-    const defaultCategory = "women";
+    const defaultCategory = "Women";
     const frontendCategory = req.query.category
       ? req.query.category.trim()
       : defaultCategory;
 
     const products = await Product.find({
-      category: { $regex: frontendCategory, $options: "i" },
+      category: frontendCategory,
     }).limit(4);
     res.status(200).json(products);
   } catch (error) {
@@ -186,10 +186,7 @@ export const GetRelatedProuct = async (req, res) => {
   try {
     const product = await Product.findById(productId);
     const relatedProduct = await Product.find({
-      $or: [
-        { name: { $regex: product.name, $options: "i" } },
-        { category: { $regex: product.category, $options: "i" } },
-      ],
+      $or: [{ name: product.name }, { category: product.category }],
       _id: { $ne: productId },
     }).limit(10);
 

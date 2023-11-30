@@ -84,6 +84,7 @@ const SingleProduct = () => {
     }
     await dispatch(AddToCart({ productId: _id, quantity: count }));
     await dispatch(fetchCartProduct());
+    await dispatch(fetchUserData());
     toast.success("Item successfully added to cart");
   };
 

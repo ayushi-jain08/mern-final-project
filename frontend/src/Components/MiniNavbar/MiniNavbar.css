@@ -110,11 +110,11 @@ font-family: 'Roboto', sans-serif; */
 @media screen and (max-width: 900px) {
   .mini-navbar {
     justify-content: space-between;
-    padding: 0 3px;
+    padding: 0 5px;
   }
   .mini-navbar .left-icons li {
     list-style: none;
-    padding: 0px 0px;
+    padding: 0px 3px;
   }
   .mini-navbar .search-box {
     width: 150px;
@@ -133,11 +133,11 @@ font-family: 'Roboto', sans-serif; */
     font-size: 11px;
   }
   .mini-navbar .left-icons li .para {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .mini-navbar .left-icons li .category-icon {
-    font-size: 17px;
+    font-size: 18px;
   }
   .search-submit svg {
     font-size: 14px;

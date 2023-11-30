@@ -65,7 +65,7 @@ font-family: 'Playfair Display', serif; */
 }
 @media screen and (max-width: 900px) {
   .product-types {
-    width: 99%;
+    max-width: 98%;
   }
   .product-types .heading {
     margin-top: 30px;

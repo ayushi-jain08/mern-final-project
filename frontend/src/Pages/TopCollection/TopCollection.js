@@ -6,7 +6,7 @@ import { fetchCategory } from "../../Redux/Slices/Product";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const TopCollection = () => {
-  const category = ["women", "electronics", "Footwear", "Spices"];
+  const category = ["Women", "Electronics", "Footwear", "Spices"];
   const [selectedCategory, setSelectedCategory] = useState(category[0]);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);

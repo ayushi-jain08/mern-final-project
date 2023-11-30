@@ -54,15 +54,17 @@ font-family: 'Roboto', sans-serif; */
   border-bottom-right-radius: 15px;
   padding: 5px;
 }
-.featured-product .featured-card .featured-content h4 {
+.featured-product .featured-card .featured-content a h4 {
   font-size: 22px;
   font-weight: 600;
   font-family: "Libre Baskerville", serif;
   margin-bottom: 0px;
+  color: black;
 }
-.featured-card .featured-content p {
+.featured-card .featured-content a p {
   font-size: 18px;
   font-family: "Libre Baskerville", serif;
+  color: black;
 }
 .featured-card .add-to-wishlist {
   border: none;
