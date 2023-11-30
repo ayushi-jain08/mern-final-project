@@ -12,7 +12,7 @@ export const auth = async (req, res, next) => {
       if (token) {
         token = token.split(" ")[1];
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // Corrected this line
-        console.log("ddd", decoded);
+
         // Now, you should have access to the user ID in `decoded.id`
         const user = await User.findById(decoded.id).select("-password");
 
@@ -22,7 +22,7 @@ export const auth = async (req, res, next) => {
             message: "User not found",
           });
         }
-        console.log("user", user);
+
         // Attach the user object to the request for later use
         req.user = user;
         next();

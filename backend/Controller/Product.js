@@ -106,8 +106,7 @@ export const GetAllProduct = async (req, res) => {
     const categoryFilter = req.query.category
       ? { category: req.query.category }
       : {};
-    console.log("brns", brandFilter);
-    console.log("catego", categoryFilter);
+
     const totalProducts = await Product.countDocuments();
     const totalPages = Math.ceil(totalProducts / perpage);
 
