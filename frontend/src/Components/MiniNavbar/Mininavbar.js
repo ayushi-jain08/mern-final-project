@@ -30,8 +30,9 @@ const Mininavbar = () => {
   useEffect(() => {
     const UrlParams = new URLSearchParams(window.location.search);
     const searchTermFormUrl = UrlParams.get("searchTerm");
-    if (searchTermFormUrl) {
-      setSearchTerm(searchTermFormUrl);
+    const lowercaseSearchTerm = searchTermFormUrl?.toLowerCase();
+    if (lowercaseSearchTerm) {
+      setSearchTerm(lowercaseSearchTerm);
       dispatch(FetchSearchProduct());
     }
     // eslint-disable-next-line
