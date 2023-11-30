@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../../Redux/Slices/User";
 import { AddToWishList } from "../../Redux/Slices/Product";
 import { toast } from "react-toastify";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const TopCollectionCard = ({ item }) => {
   const dispatch = useDispatch();
