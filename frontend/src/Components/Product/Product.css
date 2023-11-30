@@ -28,7 +28,7 @@ font-family: 'Roboto', sans-serif; */
 .product .product-card {
   border-radius: 8px;
   width: 180px;
-  height: 300px;
+  height: fit-content;
   background-color: white;
   margin-top: 5px;
   border: 1px solid rgb(226, 220, 220);
@@ -299,12 +299,13 @@ font-family: 'Roboto', sans-serif; */
     margin-top: 2px;
   }
   .all-product-page .all-product .sub-products {
-    max-width: 99%;
+    max-width: 97%;
     flex-direction: column;
+    justify-content: center;
     padding: 0;
   }
   .all-product-page .left .shop {
-    height: 135px;
+    height: 140px;
     width: 49%;
   }
   .all-product-page .left .filter {
@@ -337,7 +338,7 @@ font-family: 'Roboto', sans-serif; */
     width: 100%;
   }
   .product .product-card .details .stars svg {
-    font-size: 14px;
+    font-size: 15px;
   }
   .all-product-page .all-product .right .sort {
     width: 98%;
@@ -349,14 +350,14 @@ font-family: 'Roboto', sans-serif; */
     font-size: 10px;
   }
   .product .product-card .details .price strong {
-    font-size: 11px;
+    font-size: 12px;
   }
   .all-product-page .all-product .sub-products .product {
     gap: 2px;
   }
   .product .product-card {
-    width: 150px;
-    height: 280px;
+    width: 155px;
+
     margin-bottom: 10px;
   }
   .product .product-card .details {
@@ -365,11 +366,11 @@ font-family: 'Roboto', sans-serif; */
     padding: 0;
   }
   .product .product-card .details .head {
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 0;
   }
   .product .product-card .details a p {
-    font-size: 8px;
+    font-size: 9px;
     margin-top: 3px;
   }
   .all-product-page .all-product .pagination {

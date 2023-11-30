@@ -83,7 +83,10 @@ const Mininavbar = () => {
                   aria-expanded="false"
                 >
                   <MdPerson className="category-icon" />{" "}
-                  {currentUser?.otherDeatils?.name}
+                  <span className="para">
+                    {" "}
+                    {currentUser?.otherDeatils?.name}
+                  </span>
                 </Link>
                 <ul className="dropdown-menu">
                   <li

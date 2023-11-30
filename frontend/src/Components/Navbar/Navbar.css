@@ -139,7 +139,7 @@ font-family: 'Roboto', sans-serif; */
   }
   .navbar .center-list .left-list li a {
     color: white;
-    font-size: 12px;
+    font-size: 15px;
   }
   .active {
     background-color: black;
@@ -150,7 +150,7 @@ font-family: 'Roboto', sans-serif; */
     padding: 0;
   }
   .navbar .right-list li svg {
-    font-size: 18px;
+    font-size: 22px;
     color: white;
   }
 }

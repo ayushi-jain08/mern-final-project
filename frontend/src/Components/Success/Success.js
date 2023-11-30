@@ -21,7 +21,7 @@ const Success = () => {
             <h2>Your Order has been Placed successfully</h2>
           </div>
         </div>
-        <NavLink to="/orders">
+        <NavLink to="/order">
           <button className="order-success-btn">View Orders</button>
         </NavLink>
       </div>
