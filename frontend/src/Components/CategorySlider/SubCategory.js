@@ -4,6 +4,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { fetchSubCategory } from "../../Redux/Slices/Product";
 import "./CategorySlider.css";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet-async";
 
 const SubCategory = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,18 @@ const SubCategory = () => {
   if (error) {
     return <div>Error:{error}</div>;
   }
+  console.log("pp", subcategories);
   return (
     <>
       <div className="sub-category-cont">
+        <Helmet>
+          <title>Category-{`${name}`}</title>
+          <meta
+            name="keywords"
+            content={`${subcategories?.map((cat) => cat.name)}`}
+          />
+        </Helmet>
+
         <div className="heading">
           <span></span>
           <h2>{name}</h2>

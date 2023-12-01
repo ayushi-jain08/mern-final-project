@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import "./Category.css";
 import ProductCard from "../../Components/Product/ProductCard";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet-async";
 
 const ProductByCategory = () => {
   const dispatch = useDispatch();
@@ -15,10 +16,22 @@ const ProductByCategory = () => {
   useEffect(() => {
     dispatch(FetchProductByCategory(category));
   }, [dispatch, category]);
+
+  const productName =
+    ProductByCategory?.slice(0, 1)?.[0]?.category || "Default Product Name";
   console.log("ppp", ProductByCategory);
   return (
     <>
       <div className="category-by-product">
+        {ProductByCategory?.length > 0 && (
+          <Helmet>
+            <title>Product - {productName}</title>
+            <meta
+              name="keywords"
+              content={`${ProductByCategory?.map((cat) => cat.name)}`}
+            />
+          </Helmet>
+        )}
         <div className="product">
           {loading ? (
             <div className="product-loader">

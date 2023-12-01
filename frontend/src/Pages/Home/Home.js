@@ -8,6 +8,7 @@ import Banners from "../Banners/Banners";
 import OurFeatures from "../OurFeatures/OurFeatures";
 import ProductType from "../../Components/ProductType/ProductType";
 
+
 const Home = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   // ====================SCROLL POSITION====================

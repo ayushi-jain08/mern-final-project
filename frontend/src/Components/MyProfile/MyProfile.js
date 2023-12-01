@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { fetchUserData } from "../../Redux/Slices/User";
 import Options from "./Options";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = ({ path = "loginsignup" }) => {
   const [option, setOption] = useState(false);
@@ -29,6 +30,9 @@ const MyProfile = ({ path = "loginsignup" }) => {
   return (
     <>
       <div className="my-profile">
+        <Helmet>
+          <title>My Profile - {name}</title>
+        </Helmet>
         {loading ? (
           <div
             style={{

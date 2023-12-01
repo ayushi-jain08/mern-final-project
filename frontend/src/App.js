@@ -26,6 +26,7 @@ import OrderDetails from "./Components/OrderDetails/OrderDetails";
 import Search from "./Components/Search/Search";
 import ProductByCategory from "./Pages/Category/ProductByCategory";
 import MyProfile from "./Components/MyProfile/MyProfile";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   const [stripeapiKey, setStripeApiKey] = useState("");
@@ -66,6 +67,13 @@ function App() {
   }, []);
   return (
     <>
+      <Helmet>
+        {" "}
+        <title>COLOSHOP</title>
+        <meta name="description" content="Get all product here" />
+        <meta name="keywords" content="Grocery, Electronic, Clothing" />
+      </Helmet>
+
       <Mininavbar />
       <Navbar />
 

@@ -5,6 +5,7 @@ import { FetchAllOrders } from "../../Redux/Slices/Product";
 import "./Order.css";
 import { MdOutlineLaunch } from "react-icons/md";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet-async";
 
 const Order = ({ path = "loginsignup" }) => {
   const location = useLocation();
@@ -25,6 +26,9 @@ const Order = ({ path = "loginsignup" }) => {
   return (
     <>
       <div className="orders-container">
+        <Helmet>
+          <title>My Orders</title>
+        </Helmet>
         {loading ? (
           <div
             style={{

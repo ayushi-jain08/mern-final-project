@@ -22,6 +22,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
 import { fetchUserData } from "../../Redux/Slices/User";
+import { Helmet } from "react-helmet-async";
 
 const SingleProduct = ({ path = "loginsignup" }) => {
   const location = useLocation();
@@ -138,6 +139,10 @@ const SingleProduct = ({ path = "loginsignup" }) => {
   return (
     <>
       <div className="single-product" style={headerStyle}>
+        <Helmet>
+          <title>{name}</title>
+          <meta name="description" content={desc} />
+        </Helmet>
         <div className="sub-single">
           {loading ? (
             <div
