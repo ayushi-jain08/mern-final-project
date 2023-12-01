@@ -85,7 +85,6 @@ const LoginSignup = () => {
       toast.warning("all fields are required");
     }
     await dispatch(fetchLogin({ email: loginEmail, password: loginPassword }));
-    await dispatch(clearError());
     const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
     if (storedUserInfo) {
       toast.success("You successfully login");
