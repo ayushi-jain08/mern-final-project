@@ -40,9 +40,7 @@ export const fetchLogin = createAsyncThunk(
       const response = await fetch(`${HOST}/api/user/login`, {
         method: "POST",
         mode: "cors",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        "Content-Type": "multipart/form-data",
         body: formData,
       });
       const data = await response.json();

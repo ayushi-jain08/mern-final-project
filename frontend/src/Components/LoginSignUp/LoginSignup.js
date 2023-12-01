@@ -85,19 +85,20 @@ const LoginSignup = () => {
       toast.warning("all fields are required");
     }
     await dispatch(fetchLogin({ email: loginEmail, password: loginPassword }));
+    await dispatch(clearError());
     const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
     if (storedUserInfo) {
       toast.success("You successfully login");
       setTimeout(() => {
         navigate(location.state || "/");
-      }, 5000);
+      }, 2000);
     }
   };
   useEffect(() => {
     if (error) {
       setTimeout(() => {
         dispatch(clearError());
-      }, 1000);
+      }, 5000);
     }
   }, [dispatch, error]);
   useEffect(() => {
@@ -106,7 +107,7 @@ const LoginSignup = () => {
       navigate(location.state || "/");
     }
   }, [location.state, navigate]);
-
+  console.log("pass", loginPassword);
   return (
     <>
       <div className="LoginSignUpContainer">

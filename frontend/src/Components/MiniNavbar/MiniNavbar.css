@@ -116,7 +116,7 @@ font-family: 'Roboto', sans-serif; */
   }
   .mini-navbar .left-icons li {
     list-style: none;
-    padding: 0px 1px;
+    padding: 0px 3px;
   }
   .mini-navbar .search-box {
     width: 150px;
@@ -135,11 +135,12 @@ font-family: 'Roboto', sans-serif; */
     font-size: 11px;
   }
   .mini-navbar .left-icons li .para {
-    font-size: 8px;
+    font-size: 9px;
+    margin-left: 0;
   }
 
   .mini-navbar .left-icons li .category-icon {
-    font-size: 18px;
+    font-size: 19px;
   }
   .search-submit svg {
     font-size: 14px;
