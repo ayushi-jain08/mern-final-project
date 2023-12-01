@@ -135,12 +135,11 @@ font-family: 'Roboto', sans-serif; */
     font-size: 11px;
   }
   .mini-navbar .left-icons li .para {
-    font-size: 9px;
+    font-size: 10px;
     margin-left: 1px;
   }
-
   .mini-navbar .left-icons li .category-icon {
-    font-size: 21px;
+    font-size: 22px;
   }
   .search-submit svg {
     font-size: 14px;

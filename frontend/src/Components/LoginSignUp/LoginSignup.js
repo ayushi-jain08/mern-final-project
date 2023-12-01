@@ -90,14 +90,14 @@ const LoginSignup = () => {
       toast.success("You successfully login");
       setTimeout(() => {
         navigate(location.state || "/");
-      }, 2000);
+      }, 1000);
     }
   };
   useEffect(() => {
     if (error) {
       setTimeout(() => {
         dispatch(clearError());
-      }, 5000);
+      }, 3000);
     }
   }, [dispatch, error]);
   useEffect(() => {
