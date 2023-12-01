@@ -40,7 +40,9 @@ export const fetchLogin = createAsyncThunk(
       const response = await fetch(`${HOST}/api/user/login`, {
         method: "POST",
         mode: "cors",
-        "Content-Type": "multipart/form-data",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
         body: formData,
       });
       const data = await response.json();
@@ -156,7 +158,11 @@ const initialState = {
 const UserSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    clearError: (state) => {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRegister.pending, (state) => {
@@ -189,7 +195,7 @@ const UserSlice = createSlice({
       })
       .addCase(fetchLogout.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(fetchLogout.fulfilled, (state, action) => {
         state.loading = false;
@@ -218,4 +224,5 @@ const UserSlice = createSlice({
   },
 });
 
+export const { clearError } = UserSlice.actions;
 export default UserSlice.reducer;

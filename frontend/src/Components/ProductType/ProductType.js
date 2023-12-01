@@ -3,11 +3,12 @@ import "./ProductType.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllSubCategory } from "../../Redux/Slices/Product";
 import { NavLink } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const ProductType = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product);
-  const { allSubcategory } = products;
+  const { allSubcategory, loading } = products;
   useEffect(() => {
     dispatch(fetchAllSubCategory());
   }, [dispatch]);
@@ -20,22 +21,28 @@ const ProductType = () => {
           <h2>Categories</h2>
           <span></span>
         </div>
-        <div className="product-type-container">
-          {allSubcategory.map((item) => {
-            return (
-              <div className="flex" key={item._id}>
-                <div className="content">
-                  <NavLink to={`/subcategory/${item._id}`}>
-                    <p>{item.name}</p>
-                  </NavLink>
+        {loading ? (
+          <div className="product-loader">
+            <CircularProgress />
+          </div>
+        ) : (
+          <div className="product-type-container">
+            {allSubcategory.map((item) => {
+              return (
+                <div className="flex" key={item._id}>
+                  <div className="content">
+                    <NavLink to={`/subcategory/${item._id}`}>
+                      <p>{item.name}</p>
+                    </NavLink>
+                  </div>
+                  <div className="img">
+                    <img src={item.image} alt="" width={100} height={100} />
+                  </div>
                 </div>
-                <div className="img">
-                  <img src={item.image} alt="" width={100} height={100} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </>
   );

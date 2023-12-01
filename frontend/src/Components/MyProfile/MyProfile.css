@@ -119,13 +119,13 @@ font-family: 'Playfair Display', serif; */
     font-size: 10px;
   }
   .options {
-    right: 5px;
+    right: 7px;
   }
   .options ul li {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
   .options ul li svg {
-    font-size: 13px;
+    font-size: 14px;
   }
 }

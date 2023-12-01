@@ -22,6 +22,7 @@ const Mininavbar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams(window.location.search);
+
     urlParams.set("searchTerm", searchTerm);
     const searchQuery = urlParams.toString();
 
@@ -30,10 +31,10 @@ const Mininavbar = () => {
   useEffect(() => {
     const UrlParams = new URLSearchParams(window.location.search);
     const searchTermFormUrl = UrlParams.get("searchTerm");
-    const lowercaseSearchTerm = searchTermFormUrl?.toLowerCase();
-    if (lowercaseSearchTerm) {
-      setSearchTerm(lowercaseSearchTerm);
-      dispatch(FetchSearchProduct());
+
+    if (searchTermFormUrl) {
+      setSearchTerm(searchTermFormUrl);
+      dispatch(FetchSearchProduct(searchTerm));
     }
     // eslint-disable-next-line
   }, [dispatch, window.location.search]);
@@ -127,7 +128,8 @@ const Mininavbar = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <MdPerson /> Sign in
+                  <MdPerson className="category-icon" />{" "}
+                  <span className="para">Sign in</span>
                 </Link>
                 <ul className="dropdown-menu">
                   <li style={{ display: "flex" }}>

@@ -36,6 +36,11 @@ font-family: 'Playfair Display', serif; */
   padding: 5px 15px;
   box-sizing: border-box;
 }
+.product-types .product-loader {
+  position: relative;
+  margin-top: 50px;
+  left: 50%;
+}
 .product-types .flex {
   display: flex;
   align-items: center;
@@ -65,7 +70,7 @@ font-family: 'Playfair Display', serif; */
 }
 @media screen and (max-width: 900px) {
   .product-types {
-    max-width: 97%;
+    max-width: 99%;
   }
   .product-types .heading {
     margin-top: 30px;
@@ -77,13 +82,16 @@ font-family: 'Playfair Display', serif; */
     font-size: 28px;
   }
   .product-types .product-type-container {
-    padding: 5px;
-
-    gap: 4px;
+    padding: 5px 0;
+    justify-content: center;
+    gap: 0;
   }
   .product-types .flex {
     width: 145px;
     padding: 15px 5px;
+  }
+  .product-types .product-loader {
+    left: 0;
   }
   .product-types .flex .img img {
     width: 55px;

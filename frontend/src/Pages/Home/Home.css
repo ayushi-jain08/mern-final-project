@@ -52,6 +52,9 @@ font-family: 'Roboto', sans-serif; */
   object-fit: cover;
 }
 @media screen and (max-width: 900px) {
+  .home {
+    top: 100px;
+  }
   .slider-banner {
     margin-top: 0;
     padding: 0 3px;

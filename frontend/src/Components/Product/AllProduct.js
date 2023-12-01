@@ -20,12 +20,12 @@ const AllProduct = () => {
   const { allProductInfo, totalPage, loading } = products;
   const brands = [
     "Nature’s Bounty",
-    "Maharaja",
+    "maharaja",
     "Mom's Magic",
     "Zara",
     "Tokyo Talkies",
   ];
-  const categories = ["electronic", "spices", "grains", "women"];
+  const categories = ["Electronics", "Spices", "Grocery", "Women"];
   useEffect(() => {
     const fetchData = async () => {
       await dispatch(
@@ -164,15 +164,11 @@ const AllProduct = () => {
               </div>
               <div className="product">
                 {loading ? (
-                  <div
-                    style={{
-                      position: "relative",
-                      left: "50%",
-                      marginTop: "50px",
-                    }}
-                  >
+                  <div className="product-loader">
                     <CircularProgress />
                   </div>
+                ) : allProductInfo?.length < 1 ? (
+                  <h4 style={{ marginTop: "10px" }}>No Product found</h4>
                 ) : (
                   allProductInfo?.map((item, i) => (
                     <ProductCard item={item} key={i} />

@@ -31,13 +31,7 @@ const FeatureProduct = () => {
         </div>
         <div className="featured-block">
           {loading ? (
-            <div
-              style={{
-                position: "relative",
-                left: "50%",
-                marginTop: "50px",
-              }}
-            >
+            <div className="loader-place">
               <CircularProgress />
             </div>
           ) : (

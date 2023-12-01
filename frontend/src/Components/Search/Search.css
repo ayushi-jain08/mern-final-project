@@ -26,10 +26,11 @@
 }
 @media screen and (max-width: 900px) {
   .search-product {
-    width: 100%;
+    max-width: 99%;
     top: 95px;
   }
   .search-product .product {
     gap: 2px;
+    justify-content: center;
   }
 }

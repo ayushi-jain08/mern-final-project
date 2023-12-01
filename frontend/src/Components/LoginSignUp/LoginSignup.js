@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdFace } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchLogin, fetchRegister } from "../../Redux/Slices/User";
+import { clearError, fetchLogin, fetchRegister } from "../../Redux/Slices/User";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -90,10 +90,16 @@ const LoginSignup = () => {
       toast.success("You successfully login");
       setTimeout(() => {
         navigate(location.state || "/");
-      }, 1000);
+      }, 5000);
     }
   };
-
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        dispatch(clearError());
+      }, 1000);
+    }
+  }, [dispatch, error]);
   useEffect(() => {
     const storedUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
     if (storedUserInfo) {

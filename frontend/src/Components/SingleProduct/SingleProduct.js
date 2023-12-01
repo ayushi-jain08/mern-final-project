@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SingleProduct.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
 import { useDispatch, useSelector } from "react-redux";
 import Accordions from "./Accordions";
@@ -23,7 +23,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaHeart } from "react-icons/fa";
 import { fetchUserData } from "../../Redux/Slices/User";
 
-const SingleProduct = () => {
+const SingleProduct = ({ path = "loginsignup" }) => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
@@ -119,14 +120,20 @@ const SingleProduct = () => {
     transition: "background-color 0.3s ease",
   };
   const handleCheckOut = () => {
-    const productData = {
-      product: singleProduct,
-      quantity: count,
-      subtotal: count * singleProduct.cost,
-    };
-    const productArray = [productData];
-    sessionStorage.setItem("orderProduct", JSON.stringify(productArray));
-    navigate("/shipping");
+    if (!storedUserInfo) {
+      navigate(`/${path}`, {
+        state: location.pathname,
+      });
+    } else {
+      const productData = {
+        product: singleProduct,
+        quantity: count,
+        subtotal: count * singleProduct.cost,
+      };
+      const productArray = [productData];
+      sessionStorage.setItem("orderProduct", JSON.stringify(productArray));
+      navigate("/shipping");
+    }
   };
   return (
     <>
@@ -161,7 +168,7 @@ const SingleProduct = () => {
 
                     <div className="icons">
                       <div className="star">{RenderStars(ratings)}</div>
-                      <div className="rating"> 5 Review</div>
+                      <div className="rating"> {allReview?.length} Review</div>
                     </div>
                     <div className="four-content">
                       <p className="brand">
@@ -265,14 +272,14 @@ const SingleProduct = () => {
         </div>
 
         <div className="review">
-          {allReview && allReview.length > 0 ? (
+          {allReview && allReview?.length > 0 ? (
             <Review allReview={allReview} ids={ids} ratings={ratings} />
           ) : (
             <p>No Review Yet</p>
           )}
         </div>
       </div>
-      {relatedProduct.length > 0 && (
+      {relatedProduct?.length > 0 && (
         <div className="related-product">
           <RelatedProduct product={relatedProduct} />
         </div>

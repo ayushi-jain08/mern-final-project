@@ -12,7 +12,7 @@ font-family: 'Playfair Display', serif; */
   width: 100vw;
 }
 .about-co-details img {
-  height: 80vh;
+  height: 90vh;
   width: 100vw;
 }
 .about-co-details .content {
@@ -21,7 +21,7 @@ font-family: 'Playfair Display', serif; */
   left: 30%;
   /* transform: translate(-50%,-50%); */
   width: 45vw;
-  height: 25vh;
+  height: 26vh;
   color: white;
   backdrop-filter: blur(16px) saturate(161%);
   -webkit-backdrop-filter: blur(16px) saturate(161%);
@@ -33,7 +33,7 @@ font-family: 'Playfair Display', serif; */
 }
 .about-co-details .content h3 {
   margin-top: 6px;
-  font-size: 3.7vw;
+  font-size: 3.9vw;
   letter-spacing: 1px;
   word-wrap: 2px;
   color: white;
@@ -43,7 +43,7 @@ font-family: 'Playfair Display', serif; */
 }
 .about-co-details .content p {
   margin-top: 10px;
-  font-size: 1.5vw;
+  font-size: 1.7vw;
   padding: 0 15px;
   text-align: center;
   font-family: "Neuton", serif;
@@ -65,8 +65,11 @@ font-family: 'Playfair Display', serif; */
   }
 }
 @media screen and (max-width: 900px) {
+  .about-co {
+    top: 90px;
+  }
   .about-co-details img {
-    height: 50vh;
+    height: 100vh;
   }
   .about-co-details .content {
     width: 55vw;
