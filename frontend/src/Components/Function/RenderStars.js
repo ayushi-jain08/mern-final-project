@@ -21,7 +21,10 @@ const RenderStars = (rating) => {
       // Partial star
       stars.push(
         <span key={i}>
-          <FaStarHalfStroke className="partial-star" />
+          <FaStarHalfStroke
+            className="partial-star"
+            style={{ fontSize: "18px" }}
+          />
         </span>
       );
     } else {

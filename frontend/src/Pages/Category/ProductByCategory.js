@@ -21,15 +21,11 @@ const ProductByCategory = () => {
       <div className="category-by-product">
         <div className="product">
           {loading ? (
-            <div
-              style={{
-                position: "relative",
-                left: "50%",
-                marginTop: "50px",
-              }}
-            >
+            <div className="product-loader">
               <CircularProgress />
             </div>
+          ) : ProductByCategory?.length < 1 ? (
+            <h4 style={{ marginTop: "10px" }}>No Product found</h4>
           ) : (
             ProductByCategory?.map((item, i) => (
               <ProductCard item={item} key={i} />

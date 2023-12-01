@@ -73,15 +73,11 @@ const TopCollection = () => {
         </div>
         <div className="selected-category-product">
           {loading ? (
-            <div
-              style={{
-                position: "relative",
-                left: "50%",
-                marginTop: "50px",
-              }}
-            >
+            <div className="product-loader">
               <CircularProgress />
             </div>
+          ) : categoryProduct?.length < 1 ? (
+            <h4 style={{ marginTop: "10px" }}>No Product found</h4>
           ) : (
             categoryProduct &&
             categoryProduct?.map((item) => (
