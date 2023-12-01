@@ -28,9 +28,9 @@ font-family: 'Playfair Display', serif; */
 .category-slider .category-slider-cont .top {
   background-color: rgb(9, 9, 40);
   width: 100%;
-  padding: 5px 15px;
+  padding: 8px 15px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 2px;
   display: flex;
   align-items: baseline;
   gap: 10px;
