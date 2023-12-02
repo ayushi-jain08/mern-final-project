@@ -8,7 +8,7 @@ export const auth = async (req, res, next) => {
   if (req.headers.authorization) {
     try {
       token = req.headers.authorization;
-      console.log("dd", token);
+
       if (token) {
         token = token.split(" ")[1];
         const decoded = jwt.verify(token, process.env.JWT_SECRET); // Corrected this line

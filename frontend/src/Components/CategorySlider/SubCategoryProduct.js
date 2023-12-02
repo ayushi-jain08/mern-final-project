@@ -28,15 +28,14 @@ const SubCategoryProduct = () => {
     setCurrentPage(newPage);
     dispatch(fetchSucategoryProduct({ page: newPage, subcategoryID: subId }));
   };
-  const productName = SubCategoryProduct?.slice(0, 1)?.[0]?.name || "Default Product Name";
+  const productName =
+    SubCategoryProduct?.slice(0, 1)?.[0]?.name || "Default Product Name";
   return (
     <>
       <div className="sub-category-product-category">
         {SubCategoryProduct?.length > 0 && (
           <Helmet>
-            <title>
-              Product - {productName}
-            </title>
+            <title>Product - {`${productName}`}</title>
             <meta
               name="keywords"
               content={`${SubCategoryProduct?.map((cat) => cat.name)}`}

@@ -25,7 +25,7 @@ const ProductByCategory = () => {
       <div className="category-by-product">
         {ProductByCategory?.length > 0 && (
           <Helmet>
-            <title>Product - {productName}</title>
+            <title>Product - {`${productName}`}</title>
             <meta
               name="keywords"
               content={`${ProductByCategory?.map((cat) => cat.name)}`}

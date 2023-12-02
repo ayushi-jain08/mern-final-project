@@ -6,6 +6,7 @@ import { fetchUserData } from "../../Redux/Slices/User";
 import Options from "./Options";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Helmet } from "react-helmet-async";
+import profile from "../../Images/avatar-removebg-preview.png";
 
 const MyProfile = ({ path = "loginsignup" }) => {
   const [option, setOption] = useState(false);
@@ -31,7 +32,7 @@ const MyProfile = ({ path = "loginsignup" }) => {
     <>
       <div className="my-profile">
         <Helmet>
-          <title>My Profile - {name}</title>
+          <title>My Profile - {`${name}`}</title>
         </Helmet>
         {loading ? (
           <div
@@ -48,12 +49,20 @@ const MyProfile = ({ path = "loginsignup" }) => {
             <div className="top">
               <h2>My Profile</h2>
               <span onClick={() => setOption(!option)}>
-                <img src={pic?.url} alt="user" />
+                {pic ? (
+                  <img src={pic?.url} alt="user" />
+                ) : (
+                  <img src={profile} alt="user" />
+                )}
               </span>
             </div>
             {option && <Options setOption={setOption} />}
             <div className="bottom">
-              <img src={pic?.url} alt="profile" />
+              {pic ? (
+                <img src={pic?.url} alt="profile pic" />
+              ) : (
+                <img src={profile} alt="profile pic" />
+              )}
               <div className="profile-details">
                 <div className="name">
                   <h4>Name</h4>

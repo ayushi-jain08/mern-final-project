@@ -5,6 +5,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdFace } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { FaPhoneAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { clearError, fetchLogin, fetchRegister } from "../../Redux/Slices/User";
 import { toast } from "react-toastify";
@@ -180,7 +181,7 @@ const LoginSignup = () => {
               />
             </div>
             <div>
-              <MdEmail />
+              <FaPhoneAlt />
               <input
                 type="text"
                 placeholder="Phone"

@@ -35,17 +35,14 @@ function App() {
   const getStripeApiKey = async () => {
     const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
     try {
-      const response = await fetch(
-        `https://mern-final-u6mi.onrender.com/api/stripeapikey`,
-        {
-          method: "GET",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${StoredUserInfo.token}`,
-          },
-        }
-      );
+      const response = await fetch(`http://localhost:8080/api/stripeapikey`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${StoredUserInfo.token}`,
+        },
+      });
       const data = await response.json();
       if (response.ok) {
         setStripeApiKey(data.StripeApikey);
