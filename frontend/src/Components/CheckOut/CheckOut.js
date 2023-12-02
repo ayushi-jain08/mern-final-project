@@ -38,7 +38,7 @@ const CheckOut = () => {
     const StoredUserInfo = JSON.parse(localStorage.getItem("userDataInfo"));
     try {
       const response = await fetch(
-        "http://localhost:8080/api/payment/process",
+        "https://mern-final-u6mi.onrender.com/api/payment/process",
         {
           method: "POST",
           mode: "cors",
